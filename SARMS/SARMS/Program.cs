@@ -17,6 +17,27 @@ namespace SARMS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            //initiate nessisary variables
+            bool running = true;
+
+
+
+            //initiate main loop
+            while (running == true)
+            {
+                //main loop of the program when this exits program exits
+
+            }
+
+
+
+
+
+            //application exit
+            Application.Exit();
+
+
         }
     }
 }
