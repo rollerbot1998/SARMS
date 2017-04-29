@@ -1,1 +1,10 @@
 C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\bin\Debug\SARMS.exe.config
+C:\Users\Surface\Documents\GitHub\SARMS\SARMS\SARMS\bin\Debug\SARMS.exe.config
+C:\Users\Surface\Documents\GitHub\SARMS\SARMS\SARMS\bin\Debug\SARMS.exe
+C:\Users\Surface\Documents\GitHub\SARMS\SARMS\SARMS\bin\Debug\SARMS.pdb
+C:\Users\Surface\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.csprojResolveAssemblyReference.cache
+C:\Users\Surface\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.Form1.resources
+C:\Users\Surface\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.Properties.Resources.resources
+C:\Users\Surface\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.csproj.GenerateResource.Cache
+C:\Users\Surface\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.exe
+C:\Users\Surface\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.pdb

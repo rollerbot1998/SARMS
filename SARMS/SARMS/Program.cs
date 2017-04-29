@@ -17,9 +17,11 @@ namespace SARMS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            
 
             //initiate nessisary variables
             bool running = true;
+            
 
 
 
