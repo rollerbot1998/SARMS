@@ -25,15 +25,25 @@ namespace SARMS
 
 
             //make main menu form
-            Mainmenu MainMenuForm = new Mainmenu();
+            MainMenu_Admin MainMenuForm = new MainMenu_Admin();
 
 
             //open main menu form
             MainMenuForm.Show();
 
             //close this form
-            this.Close();
+            this.Hide();
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exit_button_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace SARMS
 {
-    public partial class Mainmenu : Form
+    public partial class MainMenu_Admin : Form
     {
-        public Mainmenu()
+        public MainMenu_Admin()
         {
             InitializeComponent();
+        }
+
+        private void MainMenu_Admin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void About_Button_Click(object sender, EventArgs e)
+        {
+            About aboutform = new About();
+            aboutform.Show();
+
         }
     }
 }

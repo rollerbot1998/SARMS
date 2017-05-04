@@ -1,6 +1,6 @@
 ﻿namespace SARMS
 {
-    partial class MainMenu_Admin
+    partial class About
     {
         /// <summary>
         /// Required designer variable.
@@ -28,40 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.About_Button = new System.Windows.Forms.Button();
+            this.AboutTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // About_Button
+            // AboutTextBox
             // 
-            this.About_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.About_Button.Location = new System.Drawing.Point(951, 12);
-            this.About_Button.Name = "About_Button";
-            this.About_Button.Size = new System.Drawing.Size(45, 22);
-            this.About_Button.TabIndex = 0;
-            this.About_Button.Text = "About";
-            this.About_Button.UseVisualStyleBackColor = true;
-            this.About_Button.Click += new System.EventHandler(this.About_Button_Click);
+            this.AboutTextBox.Location = new System.Drawing.Point(12, 14);
+            this.AboutTextBox.Multiline = true;
+            this.AboutTextBox.Name = "AboutTextBox";
+            this.AboutTextBox.Size = new System.Drawing.Size(260, 235);
+            this.AboutTextBox.TabIndex = 0;
+            this.AboutTextBox.Text = "Deakin University\r\nStudent At Risk Management System\r\nSARMS v0.1\r\n\r\nAll Code (C) " +
+    "2017 SIT321 \'Geelong Group 10\'\r\n-Jared Ryan\r\n-Lachlan Johnson\r\n-Tim Hinrichsen\r\n" +
+    "-Matthew Joselin";
             // 
-            // MainMenu_Admin
+            // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 681);
-            this.Controls.Add(this.About_Button);
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.AboutTextBox);
+            this.Enabled = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "MainMenu_Admin";
+            this.Name = "About";
             this.ShowIcon = false;
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "SARMS Administrator";
-            this.Load += new System.EventHandler(this.MainMenu_Admin_Load);
+            this.ShowInTaskbar = false;
+            this.Text = "About";
+            this.TopMost = true;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button About_Button;
+        private System.Windows.Forms.TextBox AboutTextBox;
     }
 }
