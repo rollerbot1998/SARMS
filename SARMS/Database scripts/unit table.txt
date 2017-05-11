@@ -1,0 +1,9 @@
+drop table SARMS_students;
+Create table SARMS_students (
+unit_code varchar2 (6),
+unit_description varchar2 (4),
+assesment ,
+Attendance_mode varchar2 (30),
+Trimester number (1),
+class ,
+);

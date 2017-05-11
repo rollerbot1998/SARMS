@@ -1,0 +1,6 @@
+drop table SARMS_enrolment;
+Create table SARMS_enrolment (
+student_id number (9),
+unit_code varchar2 (6),
+course_code varchar2 (4)
+);
