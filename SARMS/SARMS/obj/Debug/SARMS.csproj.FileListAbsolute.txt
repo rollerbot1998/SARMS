@@ -19,3 +19,13 @@ C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.Properties.Res
 C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.csproj.GenerateResource.Cache
 C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.MainMenu_Admin.resources
 C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.About.resources
+C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.exe
+C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.pdb
+C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.csprojResolveAssemblyReference.cache
+C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.About.resources
+C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.Form1.resources
+C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.MainMenu_Admin.resources
+C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.Properties.Resources.resources
+C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.csproj.GenerateResource.Cache
+C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\bin\Debug\SARMS.exe
+C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\bin\Debug\SARMS.pdb

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace SARMS
 {
@@ -23,6 +24,52 @@ namespace SARMS
         {
             //check login with server if good go to main screen
 
+            //open connection with the sql server
+            SqlConnection myConnection = new SqlConnection("user id=ljjohnso;" +
+                                       "password=Funhaus2017;server=interactive.deakin.edu.au;" +
+                                       "Trusted_Connection=yes;" +
+                                       "database=SSID; " +
+                                       "connection timeout=30");
+            //open connection
+            try
+            {
+                myConnection.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(e.ToString());
+                Console.WriteLine ("it didn't work");
+            }
+
+            
+
+            try
+            {
+                SqlDataReader myReader = null;
+                //formulate command
+                SqlCommand myCommand = new SqlCommand("SELECT * FROM SARMS_users WHERE username like '" + username.Text + "'; ", myConnection);
+
+                myReader = myCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    Console.WriteLine(myReader["Column1"].ToString());
+                    Console.WriteLine(myReader["Column2"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            //close the connection
+            try
+            {
+                myConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(e.ToString());
+            } 
 
             //make main menu form
             MainMenu_Admin MainMenuForm = new MainMenu_Admin();

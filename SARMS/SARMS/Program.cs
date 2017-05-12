@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace SARMS
 {
@@ -11,7 +12,11 @@ namespace SARMS
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [STAThread]
+        /// 
+
+
+
+[STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
@@ -42,4 +47,5 @@ namespace SARMS
 
         }
     }
+
 }
