@@ -12,6 +12,6 @@ suspended int(1)
 
 
 
-insert into SARMS_users values(000000001, 'Admin', 'Password', 'Bob', 'Ross', 'bob@mail.com', '25/1/1998', 1);
-insert into SARMS_users values(000000501, 'Teacher', 'Password', 'Ella', 'Woman', 'ella@mail.com', '25/1/1998', 1);
-insert into SARMS_users values(000002001, 'Student', 'Password', 'Robert', 'Man', 'rob@mail.com', '25/1/1998', 1);
+insert into SARMS_users values(000000001, 'Admin', 'Password', 'Bob', 'Ross', 'bob@mail.com', '25/1/1998', 0);
+insert into SARMS_users values(000000501, 'Teacher', 'Password', 'Ella', 'Woman', 'ella@mail.com', '25/1/1998', 0);
+insert into SARMS_users values(000002001, 'Student', 'Password', 'Robert', 'Man', 'rob@mail.com', '25/1/1998', 0);

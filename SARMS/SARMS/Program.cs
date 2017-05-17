@@ -219,9 +219,214 @@ namespace SARMS
             }
         }
 
+       
+        //get firstname statement
+        public string Select_user_fname(int id)
+        {
+            //build query
+            string query = "SELECT first_name FROM SARMS_users WHERE usernumber =" + id + ";";
+
+            //used to store reply
+            string fname = "error";
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    fname = dataReader.GetString("first_name");
+                }
+
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return fname;
+            }
+            //return 0
+            else
+            {
+                return fname;
+            }
+
+        }
+
+        //get lastname statement
+        public string Select_user_lname(int id)
+        {
+            //build query
+            string query = "SELECT last_name FROM SARMS_users WHERE usernumber =" + id + ";";
+
+            //used to store reply
+            string lname = "error";
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    lname = dataReader.GetString("last_name");
+                }
+
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return lname;
+            }
+            //return 0
+            else
+            {
+                return lname;
+            }
+
+        }
+
+        //get email statement
+        public string Select_user_email(int id)
+        {
+            //build query
+            string query = "SELECT email FROM SARMS_users WHERE usernumber =" + id + ";";
+
+            //used to store reply
+            string email = "error";
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    email = dataReader.GetString("email");
+                }
+
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return email;
+            }
+            //return 0
+            else
+            {
+                return email;
+            }
+
+        }
+
+        //get dob statement
+        public string Select_user_dob(int id)
+        {
+            //build query
+            string query = "SELECT dob FROM SARMS_users WHERE usernumber =" + id + ";";
+
+            //used to store reply
+            string dob = "error";
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    dob = dataReader.GetString("dob");
+                }
+
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return dob;
+            }
+            //return 0
+            else
+            {
+                return dob;
+            }
+
+        }
+
+        //get suspended statement
+        public int Select_user_suspended(int id)
+        {
+            //build query
+            string query = "SELECT suspended FROM SARMS_users WHERE usernumber =" + id + ";";
+
+            //used to store reply
+            int suspended = 1;
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    suspended = dataReader.GetInt32(dataReader.GetOrdinal("suspended"));
+                }
+
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return suspended;
+            }
+            //return 0
+            else
+            {
+                return suspended;
+            }
+
+        }
 
         //login statement
-         public int login(string username, string password)
+        public int login(string username, string password)
         {
             //build query
             string query = "SELECT usernumber FROM SARMS_users WHERE username = '" + username + "' AND password ='" + password + "' ;";

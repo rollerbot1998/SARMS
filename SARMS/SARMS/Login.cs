@@ -29,7 +29,7 @@ namespace SARMS
             if (id != 0)
             {
                 //make main menu form
-                MainMenu_Admin MainMenuForm = new MainMenu_Admin();
+                MainMenu_Admin MainMenuForm = new MainMenu_Admin(id);
 
                 Console.WriteLine(id);
 

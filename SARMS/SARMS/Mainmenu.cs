@@ -12,9 +12,33 @@ namespace SARMS
 {
     public partial class MainMenu_Admin : Form
     {
-        public MainMenu_Admin()
+        //initialise variables
+        int users_id = 0;
+        string fname = "";
+        string lname = "";
+        string email = "";
+        string dob = "";
+        int suspended = 1;
+
+        public MainMenu_Admin(int id)
         {
             InitializeComponent();
+            users_id = id;
+
+            //load all of users data from the database
+            //setup connection
+            var dbcon = new DBConnect();
+            
+            fname = dbcon.Select_user_fname(id);
+
+            lname = dbcon.Select_user_lname(id);
+
+            email = dbcon.Select_user_email(id);
+
+            dob = dbcon.Select_user_dob(id);
+
+            suspended = dbcon.Select_user_suspended(id);
+            
         }
 
         private void MainMenu_Admin_Load(object sender, EventArgs e)
