@@ -1,8 +1,8 @@
 drop table SARMS_linking;
 Create table SARMS_linking (
-link_id number (15),
-student_id number (9),
-unit_code varchar2 (6),
-assesment_id number (1),
-classes_id number (2)
+link_id int (15),
+student_id int (9),
+unit_code varchar (6),
+assesment_id int (1),
+classes_id int (2)
 );

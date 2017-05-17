@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.username = new System.Windows.Forms.TextBox();
+            this.Username_box = new System.Windows.Forms.TextBox();
             this.login_button = new System.Windows.Forms.Button();
-            this.Password = new System.Windows.Forms.TextBox();
+            this.Password_box = new System.Windows.Forms.TextBox();
             this.exit_button = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,12 +41,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // username
+            // Username_box
             // 
-            this.username.Location = new System.Drawing.Point(256, 46);
-            this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(150, 20);
-            this.username.TabIndex = 1;
+            this.Username_box.Location = new System.Drawing.Point(256, 46);
+            this.Username_box.Name = "Username_box";
+            this.Username_box.Size = new System.Drawing.Size(150, 20);
+            this.Username_box.TabIndex = 1;
             // 
             // login_button
             // 
@@ -60,13 +60,13 @@
             this.login_button.UseVisualStyleBackColor = true;
             this.login_button.Click += new System.EventHandler(this.login_button_Click);
             // 
-            // Password
+            // Password_box
             // 
-            this.Password.Location = new System.Drawing.Point(256, 72);
-            this.Password.Name = "Password";
-            this.Password.PasswordChar = '*';
-            this.Password.Size = new System.Drawing.Size(150, 20);
-            this.Password.TabIndex = 2;
+            this.Password_box.Location = new System.Drawing.Point(256, 72);
+            this.Password_box.Name = "Password_box";
+            this.Password_box.PasswordChar = '*';
+            this.Password_box.Size = new System.Drawing.Size(150, 20);
+            this.Password_box.TabIndex = 2;
             // 
             // exit_button
             // 
@@ -140,8 +140,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.exit_button);
             this.Controls.Add(this.login_button);
-            this.Controls.Add(this.Password);
-            this.Controls.Add(this.username);
+            this.Controls.Add(this.Password_box);
+            this.Controls.Add(this.Username_box);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -156,9 +156,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox username;
+        private System.Windows.Forms.TextBox Username_box;
         private System.Windows.Forms.Button login_button;
-        private System.Windows.Forms.TextBox Password;
+        private System.Windows.Forms.TextBox Password_box;
         private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;

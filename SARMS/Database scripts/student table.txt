@@ -1,7 +1,7 @@
 drop table SARMS_students;
 Create table SARMS_students (
-ID NUMBER(9),
-course_code varchar2 (4),
-at_risk NUMBER (1),
-last_email_recived varchar2 (10)
+ID int(9),
+course_code varchar (4),
+at_risk int (1),
+last_email_recived varchar (10)
 );

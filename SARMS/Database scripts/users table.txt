@@ -1,13 +1,13 @@
 drop table SARMS_users;
 Create table SARMS_users (
-usernumber NUMBER(9),
-username VARCHAR2(20),
-password VARCHAR2(20),
-first_name VARCHAR2(30),
-last_name VARCHAR2(30),
-email VARCHAR2(50),
-dob VARCHAR2(10),
-suspended number(1)
+usernumber int(9),
+username VARCHAR(20),
+password VARCHAR(20),
+first_name VARCHAR(30),
+last_name VARCHAR(30),
+email VARCHAR(50),
+dob VARCHAR(10),
+suspended int(1)
 );
 
 

@@ -1,7 +1,7 @@
 drop table SARMS_unit;
 Create table SARMS_unit (
-unit_code varchar2 (6),
-unit_description varchar2 (4),
-Attendance_mode varchar2 (30),
-Trimester number (1)
+unit_code varchar (6),
+unit_description varchar (4),
+Attendance_mode varchar (30),
+Trimester int (1)
 );

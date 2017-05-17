@@ -22,64 +22,31 @@ namespace SARMS
 
         private void login_button_Click(object sender, EventArgs e)
         {
-            //check login with server if good go to main screen
+            //get user id    NOTE: id of 0 will be returned if connection fails!!!!!!
+            var dbcon = new DBConnect();
+            int id = dbcon.login(Username_box.Text, Password_box.Text);
 
-            //open connection with the sql server
-            SqlConnection myConnection = new SqlConnection("user id=ljjohnso;" +
-                                       "password=Funhaus2017;server=interactive.deakin.edu.au;" +
-                                       "Trusted_Connection=yes;" +
-                                       "database=SSID; " +
-                                       "connection timeout=30");
-            //open connection
-            try
+            if (id != 0)
             {
-                myConnection.Open();
+                //make main menu form
+                MainMenu_Admin MainMenuForm = new MainMenu_Admin();
+
+                Console.WriteLine(id);
+
+                //open main menu form
+                MainMenuForm.Show();
+
+                //close this form
+                this.Hide();
             }
-            catch (Exception ex)
+            //if login is unsuccesful tell the user
+            else
             {
-                Console.WriteLine(e.ToString());
-                Console.WriteLine ("it didn't work");
-            }
-
-            
-
-            try
-            {
-                SqlDataReader myReader = null;
-                //formulate command
-                SqlCommand myCommand = new SqlCommand("SELECT * FROM SARMS_users WHERE username like '" + username.Text + "'; ", myConnection);
-
-                myReader = myCommand.ExecuteReader();
-                while (myReader.Read())
-                {
-                    Console.WriteLine(myReader["Column1"].ToString());
-                    Console.WriteLine(myReader["Column2"].ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(e.ToString());
+                //login unsuccesful
+                MessageBox.Show("invalid username or password", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
             }
 
-            //close the connection
-            try
-            {
-                myConnection.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(e.ToString());
-            } 
 
-            //make main menu form
-            MainMenu_Admin MainMenuForm = new MainMenu_Admin();
-
-
-            //open main menu form
-            MainMenuForm.Show();
-
-            //close this form
-            this.Hide();
 
         }
 

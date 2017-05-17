@@ -29,3 +29,4 @@ C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.Prope
 C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.csproj.GenerateResource.Cache
 C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\bin\Debug\SARMS.exe
 C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\bin\Debug\SARMS.pdb
+C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\bin\Debug\MySql.Data.dll
