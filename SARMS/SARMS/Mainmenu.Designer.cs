@@ -70,6 +70,31 @@
             this.textboxID = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.enrolUnit = new System.Windows.Forms.TextBox();
+            this.SLName = new System.Windows.Forms.TextBox();
+            this.SFName = new System.Windows.Forms.TextBox();
+            this.enrolUnitlabel = new System.Windows.Forms.Label();
+            this.SLNamelabel = new System.Windows.Forms.Label();
+            this.SFNamelabel = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.addUserButton = new System.Windows.Forms.Button();
+            this.emailTextbox = new System.Windows.Forms.TextBox();
+            this.lastnameTextbox = new System.Windows.Forms.TextBox();
+            this.firstnameTextbox = new System.Windows.Forms.TextBox();
+            this.passwordTextbox = new System.Windows.Forms.TextBox();
+            this.usernameTextbox = new System.Windows.Forms.TextBox();
+            this.userType = new System.Windows.Forms.ListBox();
+            this.addDOB = new System.Windows.Forms.Label();
+            this.addEmail = new System.Windows.Forms.Label();
+            this.addLname = new System.Windows.Forms.Label();
+            this.addFname = new System.Windows.Forms.Label();
+            this.addPassword = new System.Windows.Forms.Label();
+            this.addtype = new System.Windows.Forms.Label();
+            this.addUsername = new System.Windows.Forms.Label();
+            this.enrol_in_unit_button = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -81,6 +106,9 @@
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // About_Button
@@ -98,6 +126,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -513,13 +542,256 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Controls.Add(this.groupBox1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(976, 631);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.enrol_in_unit_button);
+            this.groupBox3.Controls.Add(this.enrolUnit);
+            this.groupBox3.Controls.Add(this.SLName);
+            this.groupBox3.Controls.Add(this.SFName);
+            this.groupBox3.Controls.Add(this.enrolUnitlabel);
+            this.groupBox3.Controls.Add(this.SLNamelabel);
+            this.groupBox3.Controls.Add(this.SFNamelabel);
+            this.groupBox3.Location = new System.Drawing.Point(478, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(485, 618);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Add unit to student";
+            // 
+            // enrolUnit
+            // 
+            this.enrolUnit.Location = new System.Drawing.Point(212, 117);
+            this.enrolUnit.Name = "enrolUnit";
+            this.enrolUnit.Size = new System.Drawing.Size(150, 20);
+            this.enrolUnit.TabIndex = 5;
+            // 
+            // SLName
+            // 
+            this.SLName.Location = new System.Drawing.Point(213, 82);
+            this.SLName.Name = "SLName";
+            this.SLName.Size = new System.Drawing.Size(149, 20);
+            this.SLName.TabIndex = 4;
+            // 
+            // SFName
+            // 
+            this.SFName.Location = new System.Drawing.Point(212, 47);
+            this.SFName.Name = "SFName";
+            this.SFName.Size = new System.Drawing.Size(150, 20);
+            this.SFName.TabIndex = 3;
+            // 
+            // enrolUnitlabel
+            // 
+            this.enrolUnitlabel.AutoSize = true;
+            this.enrolUnitlabel.Location = new System.Drawing.Point(29, 121);
+            this.enrolUnitlabel.Name = "enrolUnitlabel";
+            this.enrolUnitlabel.Size = new System.Drawing.Size(75, 13);
+            this.enrolUnitlabel.TabIndex = 2;
+            this.enrolUnitlabel.Text = "Unit to enrol in";
+            // 
+            // SLNamelabel
+            // 
+            this.SLNamelabel.AutoSize = true;
+            this.SLNamelabel.Location = new System.Drawing.Point(22, 84);
+            this.SLNamelabel.Name = "SLNamelabel";
+            this.SLNamelabel.Size = new System.Drawing.Size(103, 13);
+            this.SLNamelabel.TabIndex = 1;
+            this.SLNamelabel.Text = "Students Last Name";
+            // 
+            // SFNamelabel
+            // 
+            this.SFNamelabel.AutoSize = true;
+            this.SFNamelabel.Location = new System.Drawing.Point(23, 47);
+            this.SFNamelabel.Name = "SFNamelabel";
+            this.SFNamelabel.Size = new System.Drawing.Size(104, 13);
+            this.SFNamelabel.TabIndex = 0;
+            this.SFNamelabel.Text = "Student\'s First Name";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dateTimePicker);
+            this.groupBox1.Controls.Add(this.addUserButton);
+            this.groupBox1.Controls.Add(this.emailTextbox);
+            this.groupBox1.Controls.Add(this.lastnameTextbox);
+            this.groupBox1.Controls.Add(this.firstnameTextbox);
+            this.groupBox1.Controls.Add(this.passwordTextbox);
+            this.groupBox1.Controls.Add(this.usernameTextbox);
+            this.groupBox1.Controls.Add(this.userType);
+            this.groupBox1.Controls.Add(this.addDOB);
+            this.groupBox1.Controls.Add(this.addEmail);
+            this.groupBox1.Controls.Add(this.addLname);
+            this.groupBox1.Controls.Add(this.addFname);
+            this.groupBox1.Controls.Add(this.addPassword);
+            this.groupBox1.Controls.Add(this.addtype);
+            this.groupBox1.Controls.Add(this.addUsername);
+            this.groupBox1.Location = new System.Drawing.Point(9, 5);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(460, 620);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Add User";
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Location = new System.Drawing.Point(104, 280);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(197, 20);
+            this.dateTimePicker.TabIndex = 15;
+            // 
+            // addUserButton
+            // 
+            this.addUserButton.Location = new System.Drawing.Point(119, 451);
+            this.addUserButton.Name = "addUserButton";
+            this.addUserButton.Size = new System.Drawing.Size(183, 40);
+            this.addUserButton.TabIndex = 14;
+            this.addUserButton.Text = "Create";
+            this.addUserButton.UseVisualStyleBackColor = true;
+            this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
+            // 
+            // emailTextbox
+            // 
+            this.emailTextbox.Location = new System.Drawing.Point(102, 244);
+            this.emailTextbox.MaxLength = 50;
+            this.emailTextbox.Name = "emailTextbox";
+            this.emailTextbox.Size = new System.Drawing.Size(200, 20);
+            this.emailTextbox.TabIndex = 12;
+            // 
+            // lastnameTextbox
+            // 
+            this.lastnameTextbox.Location = new System.Drawing.Point(102, 204);
+            this.lastnameTextbox.MaxLength = 30;
+            this.lastnameTextbox.Name = "lastnameTextbox";
+            this.lastnameTextbox.Size = new System.Drawing.Size(200, 20);
+            this.lastnameTextbox.TabIndex = 11;
+            // 
+            // firstnameTextbox
+            // 
+            this.firstnameTextbox.Location = new System.Drawing.Point(102, 159);
+            this.firstnameTextbox.MaxLength = 30;
+            this.firstnameTextbox.Name = "firstnameTextbox";
+            this.firstnameTextbox.Size = new System.Drawing.Size(200, 20);
+            this.firstnameTextbox.TabIndex = 10;
+            // 
+            // passwordTextbox
+            // 
+            this.passwordTextbox.Location = new System.Drawing.Point(102, 122);
+            this.passwordTextbox.MaxLength = 20;
+            this.passwordTextbox.Name = "passwordTextbox";
+            this.passwordTextbox.Size = new System.Drawing.Size(200, 20);
+            this.passwordTextbox.TabIndex = 9;
+            // 
+            // usernameTextbox
+            // 
+            this.usernameTextbox.Location = new System.Drawing.Point(102, 85);
+            this.usernameTextbox.MaxLength = 20;
+            this.usernameTextbox.Name = "usernameTextbox";
+            this.usernameTextbox.Size = new System.Drawing.Size(200, 20);
+            this.usernameTextbox.TabIndex = 8;
+            // 
+            // userType
+            // 
+            this.userType.FormattingEnabled = true;
+            this.userType.Items.AddRange(new object[] {
+            "Student",
+            "Teacher",
+            "Admin"});
+            this.userType.Location = new System.Drawing.Point(102, 36);
+            this.userType.Name = "userType";
+            this.userType.Size = new System.Drawing.Size(200, 43);
+            this.userType.TabIndex = 7;
+            // 
+            // addDOB
+            // 
+            this.addDOB.AutoSize = true;
+            this.addDOB.Location = new System.Drawing.Point(26, 278);
+            this.addDOB.Name = "addDOB";
+            this.addDOB.Size = new System.Drawing.Size(66, 13);
+            this.addDOB.TabIndex = 6;
+            this.addDOB.Text = "Date of Birth";
+            // 
+            // addEmail
+            // 
+            this.addEmail.AutoSize = true;
+            this.addEmail.Location = new System.Drawing.Point(22, 245);
+            this.addEmail.Name = "addEmail";
+            this.addEmail.Size = new System.Drawing.Size(32, 13);
+            this.addEmail.TabIndex = 5;
+            this.addEmail.Text = "Email";
+            // 
+            // addLname
+            // 
+            this.addLname.AutoSize = true;
+            this.addLname.Location = new System.Drawing.Point(22, 207);
+            this.addLname.Name = "addLname";
+            this.addLname.Size = new System.Drawing.Size(58, 13);
+            this.addLname.TabIndex = 4;
+            this.addLname.Text = "Last Name";
+            // 
+            // addFname
+            // 
+            this.addFname.AutoSize = true;
+            this.addFname.Location = new System.Drawing.Point(22, 162);
+            this.addFname.Name = "addFname";
+            this.addFname.Size = new System.Drawing.Size(57, 13);
+            this.addFname.TabIndex = 3;
+            this.addFname.Text = "First Name";
+            // 
+            // addPassword
+            // 
+            this.addPassword.AutoSize = true;
+            this.addPassword.Location = new System.Drawing.Point(22, 125);
+            this.addPassword.Name = "addPassword";
+            this.addPassword.Size = new System.Drawing.Size(53, 13);
+            this.addPassword.TabIndex = 2;
+            this.addPassword.Text = "Password";
+            this.addPassword.Click += new System.EventHandler(this.addPassword_Click);
+            // 
+            // addtype
+            // 
+            this.addtype.AutoSize = true;
+            this.addtype.Location = new System.Drawing.Point(22, 45);
+            this.addtype.Name = "addtype";
+            this.addtype.Size = new System.Drawing.Size(31, 13);
+            this.addtype.TabIndex = 1;
+            this.addtype.Text = "Type";
+            // 
+            // addUsername
+            // 
+            this.addUsername.AutoSize = true;
+            this.addUsername.Location = new System.Drawing.Point(22, 88);
+            this.addUsername.Name = "addUsername";
+            this.addUsername.Size = new System.Drawing.Size(55, 13);
+            this.addUsername.TabIndex = 0;
+            this.addUsername.Text = "Username";
+            // 
+            // enrol_in_unit_button
+            // 
+            this.enrol_in_unit_button.Location = new System.Drawing.Point(109, 189);
+            this.enrol_in_unit_button.Name = "enrol_in_unit_button";
+            this.enrol_in_unit_button.Size = new System.Drawing.Size(191, 29);
+            this.enrol_in_unit_button.TabIndex = 6;
+            this.enrol_in_unit_button.Text = "Enrol";
+            this.enrol_in_unit_button.UseVisualStyleBackColor = true;
+            this.enrol_in_unit_button.Click += new System.EventHandler(this.enrol_in_unit_button_Click);
+            // 
             // MainMenu_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 681);
-            this.Controls.Add(this.About_Button);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.About_Button);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -548,6 +820,11 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -601,5 +878,30 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label percentageLabel;
         private System.Windows.Forms.Label classesDisplay;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label addEmail;
+        private System.Windows.Forms.Label addLname;
+        private System.Windows.Forms.Label addFname;
+        private System.Windows.Forms.Label addPassword;
+        private System.Windows.Forms.Label addtype;
+        private System.Windows.Forms.Label addUsername;
+        private System.Windows.Forms.ListBox userType;
+        private System.Windows.Forms.Label addDOB;
+        private System.Windows.Forms.TextBox usernameTextbox;
+        private System.Windows.Forms.TextBox emailTextbox;
+        private System.Windows.Forms.TextBox lastnameTextbox;
+        private System.Windows.Forms.TextBox firstnameTextbox;
+        private System.Windows.Forms.TextBox passwordTextbox;
+        private System.Windows.Forms.Button addUserButton;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.TextBox enrolUnit;
+        private System.Windows.Forms.TextBox SLName;
+        private System.Windows.Forms.TextBox SFName;
+        private System.Windows.Forms.Label enrolUnitlabel;
+        private System.Windows.Forms.Label SLNamelabel;
+        private System.Windows.Forms.Label SFNamelabel;
+        private System.Windows.Forms.Button enrol_in_unit_button;
     }
 }

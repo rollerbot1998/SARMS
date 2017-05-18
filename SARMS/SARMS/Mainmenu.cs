@@ -223,7 +223,142 @@ namespace SARMS
 
         }
 
-        
-        
+        private void addPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addUserButton_Click(object sender, EventArgs e)
+        {
+            //add user based on data given
+            //get data from fields
+            int type = 0;
+            string temp = userType.GetItemText(userType.SelectedItem);
+            switch (temp)
+            {
+                case "Student":
+                    type = 3;
+                    break;
+                case "Teacher":
+                    type = 2;
+                    break;
+                case "Admin":
+                    type = 1;
+                    break;
+             }
+
+            string username = usernameTextbox.Text;
+            string password = passwordTextbox.Text;
+            string fname = firstnameTextbox.Text;
+            string lname = lastnameTextbox.Text;
+            string email = emailTextbox.Text;
+
+            string dob = dateTimePicker.Value.ToString("dd/MM/yyyy");
+
+            //check fields are not empty if one is return
+            if (type ==0)
+            {
+                MessageBox.Show("invalid type", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+            if (username == "")
+            {
+                MessageBox.Show("invalid username", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+
+            if (password == "")
+            {
+                MessageBox.Show("invalid password", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+            if (fname == "")
+            {
+                MessageBox.Show("invalid first name", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+            if (lname == "")
+            {
+                MessageBox.Show("invalid last name", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+            if (email == "")
+            {
+                MessageBox.Show("invalid Email", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+
+            var dbcon = new DBConnect();
+
+            //check if username is already in use
+            int check = dbcon.Select_user_id(fname, lname);
+
+            if (check != 0)
+            {
+                MessageBox.Show("user already exists with id "+check, "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+
+            check = dbcon.login(username, password);
+
+            if (check != 0)
+            {
+                MessageBox.Show("user already exists with id " + check, "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+
+            //commit to database
+
+            dbcon.Add_SARMS_User(type, username, password, fname, lname, email, dob);
+            MessageBox.Show("User "+ username +" created succesfuly", "Success", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+
+
+        }
+
+        private void enrol_in_unit_button_Click(object sender, EventArgs e)
+        {
+            //get variables
+            string fname = SFName.Text;
+            string lname = SLName.Text;
+            string unit = enrolUnit.Text;
+
+            //check fields are not empty
+            if (fname == "")
+            {
+                MessageBox.Show("invalid first name", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+            if (lname == "")
+            {
+                MessageBox.Show("invalid last name", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+            if (unit == "")
+            {
+                MessageBox.Show("invalid Unit", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+
+            //make dbconnector
+            var dbcon = new DBConnect();
+
+            //check unit exists
+            if (dbcon.unit_exists(unit))
+            {
+                //enrol student
+
+                //get id
+                int id = dbcon.Select_user_id(fname, lname);
+
+
+                dbcon.student_unit(id, unit);
+
+                MessageBox.Show("User with id:" + id + " has been sucessfuly enrolled in unit " + unit, "Success", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show("Unit " + unit + " does not exist, make sure you spelt it with uppercase letters e.g CAS324", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            }
+        }
     }
 }

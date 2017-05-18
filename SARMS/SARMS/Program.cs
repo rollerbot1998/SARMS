@@ -198,7 +198,7 @@ class DBConnect
         }
 
         //Update user's suspended status
-        public void Update_SARMS_users(int id, bool suspended)
+        public void Update_SARMS_suspended(int id, bool suspended)
         {
             if (suspended = true)
             {
@@ -257,12 +257,12 @@ class DBConnect
 
             switch (type)
             {
-                case 0:
+                case 1:
                     //admin
                     range_min = 1;
                     range_max = 500;
                     break;
-                case 1:
+                case 2:
                     //teacher
                     range_min = 501;
                     range_max = 2000;
@@ -303,7 +303,7 @@ class DBConnect
 
                         while (dataReader.Read())
                         {
-                            temp = dataReader.GetInt32(dataReader.GetOrdinal("link_id"));
+                            temp = dataReader.GetInt32(dataReader.GetOrdinal("usernumber"));
                         }
 
                         //set assignment ID
@@ -312,7 +312,7 @@ class DBConnect
                             usernumber = loop;
                             //send loop over max to escape
                             loop = range_max + 1;
-                            this.CloseConnection();
+                            
                         }
 
                         //close Data Reader
@@ -332,7 +332,7 @@ class DBConnect
 
 
                 //build sql statement 
-                string query = "INSERT INTO SARMS_users (usernumber, username, password, first_name, last_name, email, dob, suspended) VALUES(" + usernumber + "," + username + "," + password + "," + first_name + "," + last_name + "," + email + "," + dob + ", 0 )";
+                string query = "INSERT INTO SARMS_users (usernumber, username, password, first_name, last_name, email, dob, suspended) VALUES(" + usernumber + ",'" + username + "','" + password + "','" + first_name + "','" + last_name + "','" + email + "','" + dob + "', 0 )";
 
 
                 //create command and assign the query and connection from the constructor
@@ -719,7 +719,7 @@ class DBConnect
 
 
         //sign user up to class
-        public void add_unit(int id, string unit_to_add)
+        public void student_unit(int id, string unit_to_add)
         {
             
 
@@ -764,6 +764,7 @@ class DBConnect
                             class_id = loop;
                             //send loop over max to escape
                             loop = range_max + 1;
+                            //close Connection
                             this.CloseConnection();
                         }
 
@@ -776,7 +777,7 @@ class DBConnect
                     }
                     catch
                     {
-                        Console.WriteLine("free user space found");
+                        Console.WriteLine("ERROR!");
                         linking_id = loop;
                     }
                 }
@@ -798,7 +799,7 @@ class DBConnect
                 this.Insert(query);
 
                 //make assesment table
-                query = "insert into SARMS_assignments  values (" + assesment_id + ","+ id + ","+ unit_to_add + ",-1,-1,-1,-1,-1,-1)";
+                query = "insert into SARMS_assignments  values (" + assesment_id + ","+ id + ",'"+ unit_to_add + "',-1,-1,-1,-1,-1,-1)";
                 //run query
                 this.Insert(query);
 
