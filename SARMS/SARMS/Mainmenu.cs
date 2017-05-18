@@ -74,8 +74,9 @@ namespace SARMS
                labelFname.Text = dbcon.Select_user_fname(id);
                labelLname.Text = dbcon.Select_user_lname(id);
                labelEmail.Text = dbcon.Select_user_email(id);
-               labelDob.Text = dbcon.Select_user_dob(id);               
-               //labelSuspended.Text = dbcon.Select_user_suspended(id);
+               labelID.Text = users_id +"";
+                labelDob.Text = dbcon.Select_user_dob(id);               
+               labelSuspended.Text = dbcon.Select_user_suspended(id)+"";
 
             }
             else
@@ -86,7 +87,21 @@ namespace SARMS
             }    
             
         }
+        private void Admin_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (string.Equals((sender as Button).Name, @"CloseButton"))
+            {
+               Form loginform = new Form1();
+                loginform.Close();
+                Console.WriteLine("X button was pressed");
+            }
+            else
+            {
+                Console.WriteLine("X button was pressed");
+            }
+  }
 
+<<<<<<< HEAD
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -196,5 +211,12 @@ namespace SARMS
         }
 
         
+=======
+        private void kill_Click(object sender, EventArgs e)
+        {
+            Form loginform = new Form1();
+            loginform.Close();
+        }
+>>>>>>> origin/master
     }
 }
