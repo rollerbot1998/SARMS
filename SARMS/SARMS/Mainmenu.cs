@@ -139,7 +139,13 @@ namespace SARMS
             if (id == 0)
             {
                 //login unsuccesful
-                MessageBox.Show("invalid username or password", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Invalid username and/or password.", "Unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                //clear input fields
+                usernameBox.Text = "";
+                PasswordBox.Text = "";
+                unitBox.Text = "";
+                progressBar1.Value = 0;
+                   
             }
 
             else
@@ -199,7 +205,9 @@ namespace SARMS
                 else
                 {
                     //invalid unit
-                    MessageBox.Show("invalid unit", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Invalid unit", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);                    
+                    unitBox.Text = "";
+                    progressBar1.Value = 0;
                 }
             }
 
@@ -208,16 +216,7 @@ namespace SARMS
         private void progressBar1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        
-
-        private void kill_Click(object sender, EventArgs e)
-        {
-            Form loginform = new Form1();
-            loginform.Close();
-            
-        }
+        }    
 
         private void label5_Click(object sender, EventArgs e)
         {

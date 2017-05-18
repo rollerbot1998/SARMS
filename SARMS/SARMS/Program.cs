@@ -48,8 +48,7 @@ namespace SARMS
             //application exit
             Application.Exit();
             
-    }
-          
+    }        
 
 
         }
@@ -57,7 +56,8 @@ namespace SARMS
 
 class Version
 {
-    public static string GetVersionNumber() { return "v0.3"; }
+    //call Version.GetVersionNumber to return version number set below
+    public static string GetVersionNumber() { return "v0.5"; }
 }
 
 class DBConnect
@@ -110,7 +110,7 @@ class DBConnect
                         break;
 
                     case 1045:
-                        MessageBox.Show("Invalid username/password, please try again");
+                        MessageBox.Show("Invalid username/password, please try again");                    
                         break;
                 }
                 return false;

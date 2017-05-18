@@ -16,35 +16,41 @@ namespace SARMS
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();            
             verLabel.Text = Version.GetVersionNumber();
         }
 
 
         private void login_button_Click(object sender, EventArgs e)
         {
-            //get user id    NOTE: id of 0 will be returned if connection fails!!!!!!
-            var dbcon = new DBConnect();
+            //get user id    NOTE: id of 0 will be returned if connection fails!!!!!!            
+            var dbcon = new DBConnect();            
             int id = dbcon.login(Username_box.Text, Password_box.Text);
-
+            
             if (id != 0)
             {
+                //generate login box
+                
                 //make main menu form
                 MainMenu_Admin MainMenuForm = new MainMenu_Admin(id);
+                
 
                 Console.WriteLine(id);
-
-                //open main menu form
+                //open main menu form                
                 MainMenuForm.Show();
 
-                //close this form                
-                this.Hide();
+                //close this form                              
+                this.Hide();                
             }
             //if login is unsuccesful tell the user
             else
             {
                 //login unsuccesful
-                MessageBox.Show("invalid username or password", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Invalid username and/or password", "Unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                //clear input boxes 
+                Username_box.Text = "";
+                Password_box.Text = "";
+                
             }
         }
             

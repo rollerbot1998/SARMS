@@ -66,7 +66,6 @@
             this.labelID = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.kill = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textboxID = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -470,7 +469,6 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.kill);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.textboxID);
             this.panel2.Controls.Add(this.button1);
@@ -478,16 +476,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(285, 500);
             this.panel2.TabIndex = 10;
-            // 
-            // kill
-            // 
-            this.kill.Location = new System.Drawing.Point(149, 317);
-            this.kill.Name = "kill";
-            this.kill.Size = new System.Drawing.Size(75, 23);
-            this.kill.TabIndex = 9;
-            this.kill.Text = "kill";
-            this.kill.UseVisualStyleBackColor = true;
-            this.kill.Click += new System.EventHandler(this.kill_Click);
             // 
             // label1
             // 
@@ -605,7 +593,6 @@
         private System.Windows.Forms.Panel panel4;
       
         private System.Windows.Forms.Label labelID;
-        private System.Windows.Forms.Button kill;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Button generate;
         private System.Windows.Forms.Label unit_label;
