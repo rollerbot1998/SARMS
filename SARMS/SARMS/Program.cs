@@ -10,6 +10,7 @@ namespace SARMS
 {
     static class Program
     {
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,18 +18,19 @@ namespace SARMS
 
 
 
-[STAThread]
+        [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-            
+
 
             //initiate nessisary variables
             bool running = true;
-            
+
 
 
 
@@ -39,20 +41,26 @@ namespace SARMS
 
             } */
 
-        
 
 
 
-        //application exit
-        Application.Exit();
+
+            //application exit
+            Application.Exit();
+            
+    }
+          
 
 
         }
-        
-    }
-   
+}
 
-    class DBConnect
+class Version
+{
+    public static string GetVersionNumber() { return "v0.3"; }
+}
+
+class DBConnect
     {
         private MySqlConnection connection;
         private string server;
@@ -1100,6 +1108,7 @@ namespace SARMS
                 return assesments;
             }
         }
+    
 
         //
 
@@ -1184,4 +1193,5 @@ namespace SARMS
             }*/
     }
 
-}
+
+

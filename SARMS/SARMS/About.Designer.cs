@@ -38,9 +38,10 @@
             this.AboutTextBox.Name = "AboutTextBox";
             this.AboutTextBox.Size = new System.Drawing.Size(260, 235);
             this.AboutTextBox.TabIndex = 0;
-            this.AboutTextBox.Text = "Deakin University\r\nStudent At Risk Management System\r\nSARMS v0.1\r\n\r\nAll Code (C) " +
+            this.AboutTextBox.Text = "Deakin University\r\nStudent At Risk Management System\r\nSARMS " + Version.GetVersionNumber() + "\r\n\r\nAll Code (C) " +
     "2017 SIT321 \'Geelong Group 10\'\r\n-Jared Ryan\r\n-Lachlan Johnson\r\n-Tim Hinrichsen\r\n" +
     "-Matthew Joselin";
+            this.AboutTextBox.TextChanged += new System.EventHandler(this.AboutTextBox_TextChanged);
             // 
             // About
             // 
@@ -50,6 +51,7 @@
             this.Controls.Add(this.AboutTextBox);
             this.Enabled = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "About";
@@ -57,6 +59,7 @@
             this.ShowInTaskbar = false;
             this.Text = "About";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.About_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

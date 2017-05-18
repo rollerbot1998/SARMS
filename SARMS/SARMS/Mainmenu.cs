@@ -216,6 +216,7 @@ namespace SARMS
         {
             Form loginform = new Form1();
             loginform.Close();
+            
         }
 
         private void label5_Click(object sender, EventArgs e)

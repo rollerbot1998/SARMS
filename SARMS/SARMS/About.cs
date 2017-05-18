@@ -16,5 +16,15 @@ namespace SARMS
         {
             InitializeComponent();
         }
+
+        private void AboutTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void About_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
