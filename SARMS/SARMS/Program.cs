@@ -163,11 +163,11 @@ namespace SARMS
                 this.CloseConnection();
             }
         }
-        
+
         //Update SARMS_users statement
-        public void Update_SARMS_users(int id , string field, string data)
+        public void Update_SARMS_users(int id, string field, string data)
         {
-            string query = "UPDATE SARMS_users SET "+ field + "= '" + data + "' WHERE id= " + id + " ;";
+            string query = "UPDATE SARMS_users SET " + field + "= '" + data + "' WHERE id= " + id + " ;";
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -186,7 +186,7 @@ namespace SARMS
                 this.CloseConnection();
             }
         }
-        
+
         //Update user's suspended status
         public void Update_SARMS_users(int id, bool suspended)
         {
@@ -232,13 +232,13 @@ namespace SARMS
                     this.CloseConnection();
                 }
 
-            
+
             }
         }
 
         //add user to SARMS_users
         //note for type 1 = admin, 2 = teacher, other = student
-        public void Add_SARMS_User(int type ,string username, string password, string first_name, string last_name, string email, string dob )
+        public void Add_SARMS_User(int type, string username, string password, string first_name, string last_name, string email, string dob)
         {
             //find open usernumber in table
             //get range of user number based on type
@@ -310,7 +310,7 @@ namespace SARMS
                     }
                 }
 
-               
+
 
 
                 //build sql statement 
@@ -327,11 +327,11 @@ namespace SARMS
                 this.CloseConnection();
             }
         }
-        
+
         //Delete statement
         public void Delete(int id)
         {
-            string query = "DELETE FROM SARMS_users WHERE usernumber="+id+";";
+            string query = "DELETE FROM SARMS_users WHERE usernumber=" + id + ";";
 
             if (this.OpenConnection() == true)
             {
@@ -382,7 +382,7 @@ namespace SARMS
                 return list;
             }
         }
-               
+
         //get firstname statement
         public string Select_user_fname(int id)
         {
@@ -424,7 +424,7 @@ namespace SARMS
 
         }
 
-        //get lastname statement
+        //get lastname statement        
         public string Select_user_lname(int id)
         {
             //build query
@@ -462,8 +462,10 @@ namespace SARMS
             {
                 return lname;
             }
+        
 
         }
+    
 
         //get email statement
         public string Select_user_email(int id)

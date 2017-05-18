@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SARMS
 {
     public partial class MainMenu_Admin : Form
@@ -51,6 +52,22 @@ namespace SARMS
             About aboutform = new About();
             aboutform.Show();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var dbcon = new DBConnect();
+            int id = 0;
+            
+          if (int.TryParse(textBox1.Text, out id))
+            {
+               label1.Text = dbcon.Select_user_fname(id);
+            }
+            else
+            {
+                MessageBox.Show("invalid id", "unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            }    
+            
         }
     }
 }
