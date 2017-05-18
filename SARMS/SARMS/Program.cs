@@ -163,11 +163,175 @@ namespace SARMS
                 this.CloseConnection();
             }
         }
-
-        //Delete statement
-        public void Delete()
+        
+        //Update SARMS_users statement
+        public void Update_SARMS_users(int id , string field, string data)
         {
-            string query = "DELETE FROM tableinfo WHERE name='John Smith'";
+            string query = "UPDATE SARMS_users SET "+ field + "= '" + data + "' WHERE id= " + id + " ;";
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+        
+        //Update user's suspended status
+        public void Update_SARMS_users(int id, bool suspended)
+        {
+            if (suspended = true)
+            {
+                string query_true = "UPDATE SARMS_users SET suspended = 1 WHERE id= " + id + " ;";
+
+                //Open connection
+                if (this.OpenConnection() == true)
+                {
+                    //create mysql command
+                    MySqlCommand cmd = new MySqlCommand();
+                    //Assign the query using CommandText
+                    cmd.CommandText = query_true;
+                    //Assign the connection using Connection
+                    cmd.Connection = connection;
+
+                    //Execute query
+                    cmd.ExecuteNonQuery();
+
+                    //close connection
+                    this.CloseConnection();
+                }
+            }
+            else
+            {
+                string query_false = "UPDATE SARMS_users SET suspended = 0 WHERE id= " + id + " ;";
+
+                //Open connection
+                if (this.OpenConnection() == true)
+                {
+                    //create mysql command
+                    MySqlCommand cmd = new MySqlCommand();
+                    //Assign the query using CommandText
+                    cmd.CommandText = query_false;
+                    //Assign the connection using Connection
+                    cmd.Connection = connection;
+
+                    //Execute query
+                    cmd.ExecuteNonQuery();
+
+                    //close connection
+                    this.CloseConnection();
+                }
+
+            
+            }
+        }
+
+        //add user to SARMS_users
+        //note for type 1 = admin, 2 = teacher, other = student
+        public void Add_SARMS_User(int type ,string username, string password, string first_name, string last_name, string email, string dob )
+        {
+            //find open usernumber in table
+            //get range of user number based on type
+            int range_min = 0;
+            int range_max = 0;
+
+            switch (type)
+            {
+                case 0:
+                    //admin
+                    range_min = 1;
+                    range_max = 500;
+                    break;
+                case 1:
+                    //teacher
+                    range_min = 501;
+                    range_max = 2000;
+                    break;
+                default:
+                    //student
+                    range_min = 2001;
+                    range_max = 999999999;
+                    break;
+            }
+
+            //loop through database until empty space is found
+            int loop = range_min;
+
+            //set default user number
+            int usernumber = 0;
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+
+                while (loop <= range_max)
+                {
+                    try
+                    {
+                        //build query
+                        string query_loop = "SELECT first_name FROM SARMS_users WHERE usernumber =" + loop + ";";
+
+                        //used to store reply
+                        string fname = "error";
+
+
+                        //create command
+                        MySqlCommand cmd_loop = new MySqlCommand(query_loop, connection);
+
+                        //Create a data reader and Execute the command
+                        MySqlDataReader dataReader = cmd_loop.ExecuteReader();
+
+                        while (dataReader.Read())
+                        {
+                            fname = dataReader.GetString("first_name");
+                        }
+
+
+                        //close Data Reader
+                        dataReader.Close();
+
+
+                        loop = loop + 1;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("free user space found");
+                        usernumber = loop;
+                    }
+                }
+
+               
+
+
+                //build sql statement 
+                string query = "INSERT INTO SARMS_users (usernumber, username, password, first_name, last_name, email, dob, suspended) VALUES(" + usernumber + "," + username + "," + password + "," + first_name + "," + last_name + "," + email + "," + dob + ", 0 )";
+
+
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Execute command
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+        
+        //Delete statement
+        public void Delete(int id)
+        {
+            string query = "DELETE FROM SARMS_users WHERE usernumber="+id+";";
 
             if (this.OpenConnection() == true)
             {
@@ -218,8 +382,7 @@ namespace SARMS
                 return list;
             }
         }
-
-       
+               
         //get firstname statement
         public string Select_user_fname(int id)
         {
