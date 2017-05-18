@@ -1,0 +1,14 @@
+drop table SARMS_assignments;
+Create table SARMS_assignments (
+instance_id int (9),
+student_id int (9),
+unit_code varchar (6),
+assingment1 int (3) DEFAULT 0,
+assingment2 int (3) DEFAULT 0,
+assingment3 int (3) DEFAULT 0,
+assingment4 int (3) DEFAULT 0,
+assingment5 int (3) DEFAULT 0,
+assingment6 int (3) DEFAULT 0
+);
+
+insert into SARMS_assignments  values (1, 000002001,'CAS324',0,0,0,0,0,0)

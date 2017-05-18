@@ -3,6 +3,8 @@ Create table SARMS_linking (
 link_id int (15),
 student_id int (9),
 unit_code varchar (6),
-assesment_id int (1),
-classes_id int (2)
+assesment_id int (9),
+classes_id int (9)
 );
+
+insert into SARMS_linking  values (1, 000002001,CAS324,1,1)

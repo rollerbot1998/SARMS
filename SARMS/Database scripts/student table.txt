@@ -5,3 +5,5 @@ course_code varchar (4),
 at_risk int (1),
 last_email_recived varchar (10)
 );
+
+insert into SARMS_students values (000002001, CAS324,0,1/1/2000)

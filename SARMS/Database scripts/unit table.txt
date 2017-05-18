@@ -1,7 +1,9 @@
 drop table SARMS_unit;
 Create table SARMS_unit (
 unit_code varchar (6),
-unit_description varchar (4),
-Attendance_mode varchar (30),
+unit_description varchar (30),
+Attendance_mode varchar (1),
 Trimester int (1)
 );
+
+insert into SARMS_unit  values ('CAS324', 'define','x',1)

@@ -1,0 +1,37 @@
+drop table SARMS_classes;
+Create table SARMS_classes (
+instance_id int (9),
+class1 int (1) DEFAULT 0,
+class2 int (1) DEFAULT 0,
+class3 int (1) DEFAULT 0,
+class4 int (1) DEFAULT 0,
+class5 int (1) DEFAULT 0,
+class6 int (1) DEFAULT 0,
+class7 int (1) DEFAULT 0,
+class8 int (1) DEFAULT 0,
+class9 int (1) DEFAULT 0,
+class10 int (1) DEFAULT 0,
+class11 int (1) DEFAULT 0,
+class12 int (1) DEFAULT 0,
+class13 int (1) DEFAULT 0,
+class14 int (1) DEFAULT 0,
+class15 int (1) DEFAULT 0,
+class16 int (1) DEFAULT 0,
+class17 int (1) DEFAULT 0,
+class18 int (1) DEFAULT 0,
+class19 int (1) DEFAULT 0,
+class20 int (1) DEFAULT 0,
+class21 int (1) DEFAULT 0,
+class22 int (1) DEFAULT 0,
+class23 int (1) DEFAULT 0,
+class24 int (1) DEFAULT 0,
+class25 int (1) DEFAULT 0,
+class26 int (1) DEFAULT 0,
+class27 int (1) DEFAULT 0,
+class28 int (1) DEFAULT 0,
+class29 int (1) DEFAULT 0,
+class30 int (1) DEFAULT 0
+
+);
+
+insert into SARMS_classes  values (1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
