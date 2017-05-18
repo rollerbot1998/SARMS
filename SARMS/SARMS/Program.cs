@@ -123,9 +123,9 @@ namespace SARMS
         }
 
         //Insert statement
-        public void Insert()
+        public void Insert(string query)
         {
-            string query = "INSERT INTO tableinfo (name, age) VALUES('John Smith', '33')";
+            
 
             //open connection
             if (this.OpenConnection() == true)
@@ -279,10 +279,10 @@ namespace SARMS
                     try
                     {
                         //build query
-                        string query_loop = "SELECT first_name FROM SARMS_users WHERE usernumber =" + loop + ";";
+                        string query_loop = "SELECT usernumber FROM SARMS_users WHERE usernumber =" + loop + ";";
 
                         //used to store reply
-                        string fname = "error";
+                        int temp = 0;
 
 
                         //create command
@@ -293,9 +293,17 @@ namespace SARMS
 
                         while (dataReader.Read())
                         {
-                            fname = dataReader.GetString("first_name");
+                            temp = dataReader.GetInt32(dataReader.GetOrdinal("link_id"));
                         }
 
+                        //set assignment ID
+                        if (temp == 0)
+                        {
+                            usernumber = loop;
+                            //send loop over max to escape
+                            loop = range_max + 1;
+                            this.CloseConnection();
+                        }
 
                         //close Data Reader
                         dataReader.Close();
@@ -657,85 +665,226 @@ namespace SARMS
             }
         }
 
-    /*   //Backup
-        public void Backup()
+        //get id statement
+        public int Select_user_id (string fname, string lname)
         {
-            try
+            //build query
+            string query = "SELECT usernumber FROM SARMS_users WHERE first_name ='" + fname + "' AND last_name = '" + lname + "';";
+
+            //used to store reply
+            int id = 0;
+
+            //open connection
+            if (this.OpenConnection() == true)
             {
-                DateTime Time = DateTime.Now;
-                int year = Time.Year;
-                int month = Time.Month;
-                int day = Time.Day;
-                int hour = Time.Hour;
-                int minute = Time.Minute;
-                int second = Time.Second;
-                int millisecond = Time.Millisecond;
+                //create command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                //Save file to C:\ with the current date as a filename
-                string path;
-                path = "C:\\MySqlBackup" + year + "-" + month + "-" + day +
-            "-" + hour + "-" + minute + "-" + second + "-" + millisecond + ".sql";
-                StreamWriter file = new StreamWriter(path);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    id = dataReader.GetInt32(dataReader.GetOrdinal("usernumber"));
+                }
 
 
-                ProcessStartInfo psi = new ProcessStartInfo();
-                psi.FileName = "mysqldump";
-                psi.RedirectStandardInput = false;
-                psi.RedirectStandardOutput = true;
-                psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
-                    uid, password, server, database);
-                psi.UseShellExecute = false;
+                //close Data Reader
+                dataReader.Close();
 
-                Process process = Process.Start(psi);
+                //close Connection
+                this.CloseConnection();
 
-                string output;
-                output = process.StandardOutput.ReadToEnd();
-                file.WriteLine(output);
-                process.WaitForExit();
-                file.Close();
-                process.Close();
+                //return list to be displayed
+                return id;
             }
-            catch (IOException ex)
+            //return 0
+            else
             {
-                MessageBox.Show("Error , unable to backup!");
+                return id;
             }
+
         }
 
-        //Restore
-        public void Restore()
+
+
+        //sign user up to class
+        public void add_unit(int id, string unit_to_add)
         {
-            try
+            
+
+            //save variables in these
+            int linking_id = 0;
+            int assesment_id = 0;
+            int class_id = 0;
+
+            //get ids
+            //open connection
+            if (this.OpenConnection() == true)
             {
-                //Read file from C:\
-                string path;
-                path = "C:\\MySqlBackup.sql";
-                StreamReader file = new StreamReader(path);
-                string input = file.ReadToEnd();
-                file.Close();
+                int loop = 1;
+                int range_max = 999999999;
+                while (loop <= range_max)
+                {
+                    try
+                    {
+                        //build query
+                        string query_loop = "SELECT link_id FROM SARMS_linking WHERE link_id =" + loop + ";";
 
-                ProcessStartInfo psi = new ProcessStartInfo();
-                psi.FileName = "mysql";
-                psi.RedirectStandardInput = true;
-                psi.RedirectStandardOutput = false;
-                psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
-                    uid, password, server, database);
-                psi.UseShellExecute = false;
+                        //used to store reply
+                        int temp = 0;
 
 
-                Process process = Process.Start(psi);
-                process.StandardInput.WriteLine(input);
-                process.StandardInput.Close();
-                process.WaitForExit();
-                process.Close();
+                        //create command
+                        MySqlCommand cmd_loop = new MySqlCommand(query_loop, connection);
+
+                        //Create a data reader and Execute the command
+                        MySqlDataReader dataReader = cmd_loop.ExecuteReader();
+
+                        while (dataReader.Read())
+                        {
+                            temp = dataReader.GetInt32(dataReader.GetOrdinal("link_id"));
+                        }
+
+                        //set assignment ID
+                        if (temp == 0)
+                        {
+                            linking_id = loop;
+                            assesment_id = loop;
+                            class_id = loop;
+                            //send loop over max to escape
+                            loop = range_max + 1;
+                            this.CloseConnection();
+                        }
+
+
+                        //close Data Reader
+                        dataReader.Close();
+
+
+                        loop = loop + 1;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("free user space found");
+                        linking_id = loop;
+                    }
+                }
+
+            
+
+            
+
+
+                //make linking table entry
+                //build query
+                string query = "INSERT INTO SARMS_linking (link_id, student_id, unit_code, assesment_id, classes_id) VALUES ("+ linking_id + ","+id+",'"+ unit_to_add +"',"+ assesment_id+","+class_id+" )";
+                //run query
+                this.Insert(query);
+
+                //make class table
+                query = "insert into SARMS_classes values (" + class_id + ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)";
+                //run query
+                this.Insert(query);
+
+                //make assesment table
+                query = "insert into SARMS_assignments  values (" + assesment_id + ","+ id + ","+ unit_to_add + ",-1,-1,-1,-1,-1,-1)";
+                //run query
+                this.Insert(query);
+
+                //lastly close connection
+                //close Connection
+                this.CloseConnection();
             }
-            catch (IOException ex)
-            {
-                MessageBox.Show("Error , unable to Restore!");
-            }
+
+        
+
+
+
         }
+
         
-        
-        }*/
-    }
+                //
+
+                /*   //Backup
+                    public void Backup()
+                    {
+                        try
+                        {
+                            DateTime Time = DateTime.Now;
+                            int year = Time.Year;
+                            int month = Time.Month;
+                            int day = Time.Day;
+                            int hour = Time.Hour;
+                            int minute = Time.Minute;
+                            int second = Time.Second;
+                            int millisecond = Time.Millisecond;
+
+                            //Save file to C:\ with the current date as a filename
+                            string path;
+                            path = "C:\\MySqlBackup" + year + "-" + month + "-" + day +
+                        "-" + hour + "-" + minute + "-" + second + "-" + millisecond + ".sql";
+                            StreamWriter file = new StreamWriter(path);
+
+
+                            ProcessStartInfo psi = new ProcessStartInfo();
+                            psi.FileName = "mysqldump";
+                            psi.RedirectStandardInput = false;
+                            psi.RedirectStandardOutput = true;
+                            psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
+                                uid, password, server, database);
+                            psi.UseShellExecute = false;
+
+                            Process process = Process.Start(psi);
+
+                            string output;
+                            output = process.StandardOutput.ReadToEnd();
+                            file.WriteLine(output);
+                            process.WaitForExit();
+                            file.Close();
+                            process.Close();
+                        }
+                        catch (IOException ex)
+                        {
+                            MessageBox.Show("Error , unable to backup!");
+                        }
+                    }
+
+                    //Restore
+                    public void Restore()
+                    {
+                        try
+                        {
+                            //Read file from C:\
+                            string path;
+                            path = "C:\\MySqlBackup.sql";
+                            StreamReader file = new StreamReader(path);
+                            string input = file.ReadToEnd();
+                            file.Close();
+
+                            ProcessStartInfo psi = new ProcessStartInfo();
+                            psi.FileName = "mysql";
+                            psi.RedirectStandardInput = true;
+                            psi.RedirectStandardOutput = false;
+                            psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
+                                uid, password, server, database);
+                            psi.UseShellExecute = false;
+
+
+                            Process process = Process.Start(psi);
+                            process.StandardInput.WriteLine(input);
+                            process.StandardInput.Close();
+                            process.WaitForExit();
+                            process.Close();
+                        }
+                        catch (IOException ex)
+                        {
+                            MessageBox.Show("Error , unable to Restore!");
+                        }
+                    }
+
+
+                    }*/
+            }
 
 }
