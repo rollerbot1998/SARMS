@@ -101,7 +101,7 @@ namespace SARMS
             }
   }
 
-<<<<<<< HEAD
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -122,7 +122,7 @@ namespace SARMS
 
         }
 
-        private void generateButton_Click(object sender, EventArgs e)
+        private void generate_Click(object sender, EventArgs e)
         {
             string username = usernameBox.Text;
             string password = PasswordBox.Text;
@@ -211,12 +211,19 @@ namespace SARMS
         }
 
         
-=======
+
         private void kill_Click(object sender, EventArgs e)
         {
             Form loginform = new Form1();
             loginform.Close();
         }
->>>>>>> origin/master
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+        
     }
 }
