@@ -30,3 +30,15 @@ C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\obj\Debug\SARMS.cspro
 C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\bin\Debug\SARMS.exe
 C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\bin\Debug\SARMS.pdb
 C:\Users\lochi\OneDrive\Documents\GitHub\SARMS\SARMS\SARMS\bin\Debug\MySql.Data.dll
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\bin\Debug\SARMS.exe.config
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.exe
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.pdb
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\bin\Debug\SARMS.exe
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\bin\Debug\SARMS.pdb
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\bin\Debug\MySql.Data.dll
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.csprojResolveAssemblyReference.cache
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.About.resources
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.Form1.resources
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.MainMenu_Admin.resources
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.Properties.Resources.resources
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.csproj.GenerateResource.Cache
