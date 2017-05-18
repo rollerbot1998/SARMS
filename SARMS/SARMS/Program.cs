@@ -803,88 +803,383 @@ namespace SARMS
 
         }
 
-        
-                //
+        public bool unit_exists (string unit_code)
+        {
+            string query = "SELECT unit_code FROM SARMS_unit WHERE unit_code = '"+unit_code+"';";
 
-                /*   //Backup
-                    public void Backup()
-                    {
-                        try
-                        {
-                            DateTime Time = DateTime.Now;
-                            int year = Time.Year;
-                            int month = Time.Month;
-                            int day = Time.Day;
-                            int hour = Time.Hour;
-                            int minute = Time.Minute;
-                            int second = Time.Second;
-                            int millisecond = Time.Millisecond;
+            //used to store reply
+            string unit = "none";
 
-                            //Save file to C:\ with the current date as a filename
-                            string path;
-                            path = "C:\\MySqlBackup" + year + "-" + month + "-" + day +
-                        "-" + hour + "-" + minute + "-" + second + "-" + millisecond + ".sql";
-                            StreamWriter file = new StreamWriter(path);
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    unit = dataReader.GetString("unit_code");
+                }
 
 
-                            ProcessStartInfo psi = new ProcessStartInfo();
-                            psi.FileName = "mysqldump";
-                            psi.RedirectStandardInput = false;
-                            psi.RedirectStandardOutput = true;
-                            psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
-                                uid, password, server, database);
-                            psi.UseShellExecute = false;
+                //close Data Reader
+                dataReader.Close();
 
-                            Process process = Process.Start(psi);
+                //close Connection
+                this.CloseConnection();
 
-                            string output;
-                            output = process.StandardOutput.ReadToEnd();
-                            file.WriteLine(output);
-                            process.WaitForExit();
-                            file.Close();
-                            process.Close();
-                        }
-                        catch (IOException ex)
-                        {
-                            MessageBox.Show("Error , unable to backup!");
-                        }
-                    }
-
-                    //Restore
-                    public void Restore()
-                    {
-                        try
-                        {
-                            //Read file from C:\
-                            string path;
-                            path = "C:\\MySqlBackup.sql";
-                            StreamReader file = new StreamReader(path);
-                            string input = file.ReadToEnd();
-                            file.Close();
-
-                            ProcessStartInfo psi = new ProcessStartInfo();
-                            psi.FileName = "mysql";
-                            psi.RedirectStandardInput = true;
-                            psi.RedirectStandardOutput = false;
-                            psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
-                                uid, password, server, database);
-                            psi.UseShellExecute = false;
-
-
-                            Process process = Process.Start(psi);
-                            process.StandardInput.WriteLine(input);
-                            process.StandardInput.Close();
-                            process.WaitForExit();
-                            process.Close();
-                        }
-                        catch (IOException ex)
-                        {
-                            MessageBox.Show("Error , unable to Restore!");
-                        }
-                    }
-
-
-                    }*/
+                if (unit == unit_code)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
+            //return 0
+            else
+            {
+                return false;
+            }
+
+            
+
+        }
+
+        //retuns 0 if student is not in unit
+        public int student_in_unit (string unit, int student_id)
+        {
+            string query = "SELECT link_id FROM SARMS_linking WHERE unit_code LIKE '" + unit + "' and student_id = "+student_id+";";
+
+            //used to store reply
+            int link_id = 0;
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    link_id = dataReader.GetInt32(dataReader.GetOrdinal("link_id"));
+                }
+
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                return link_id;
+                
+            }
+            //return 0
+            else
+            {
+                return link_id;
+            }
+        }
+
+        //returns the number of classes a student has attended
+        public int get_class_attendance(int class_id)
+        {
+            
+
+            //used to store reply
+            int total_attended = 0;
+            int temp = 0;
+            int loop = 1;
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                while (loop <= 30)
+                {
+                    string query = "SELECT class"+loop+" FROM SARMS_classes WHERE instance_id= " + class_id + ";";
+
+                    //create command
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        temp = dataReader.GetInt32(dataReader.GetOrdinal("class"+loop));
+                    }
+
+                    //if student attended add 1 to attended
+                    if (temp == 2)
+                    {
+                        total_attended = total_attended + 1;
+                    }
+
+                    //close Data Reader
+                    dataReader.Close();
+
+                    loop = loop + 1;
+
+                   
+                }
+                //close Connection
+                this.CloseConnection();
+
+                return total_attended;
+            }
+            //return 0
+            else
+            {
+                return total_attended;
+            }
+        }
+
+        //returns the number of classes that have been run for a unit
+        public int get_classes_run(int class_id)
+        {
+
+
+            //used to store reply
+            int total_classes = 0;
+            int temp = 0;
+            int loop = 1;
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                while (loop <= 30)
+                {
+                    string query = "SELECT class" + loop + " FROM SARMS_classes WHERE instance_id= " + class_id + ";";
+
+                    //create command
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        temp = dataReader.GetInt32(dataReader.GetOrdinal("class" + loop));
+                    }
+
+                    //if student attended add 1 to attended
+                    if (temp != 0)
+                    {
+                        total_classes = total_classes + 1;
+                    }
+
+                    //close Data Reader
+                    dataReader.Close();
+
+                    loop = loop + 1;
+
+
+                }
+                //close Connection
+                this.CloseConnection();
+
+                return total_classes;
+            }
+            //return 0
+            else
+            {
+                return total_classes;
+            }
+        }
+
+        public int get_total_assesments(int class_id)
+        {
+
+
+            //used to store reply
+            int total_assesments = 0;
+            int temp = 0;
+            int loop = 1;
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                while (loop <= 6)
+                {
+                    string query = "SELECT assignment" + loop + " FROM SARMS_assignments WHERE instance_id= " + class_id + ";";
+
+                    //create command
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        temp = dataReader.GetInt32(dataReader.GetOrdinal("assignment" + loop));
+                    }
+
+                    //if assignment exists for unit add 1
+                    if (temp != -1)
+                    {
+                        total_assesments = total_assesments + 1;
+                    }
+
+                    //close Data Reader
+                    dataReader.Close();
+
+                    loop = loop + 1;
+
+
+                }
+                //close Connection
+                this.CloseConnection();
+
+                return total_assesments;
+            }
+            //return 0
+            else
+            {
+                return total_assesments;
+            }
+        }
+
+        public int get_assesment_results(int class_id)
+        {
+
+
+            //used to store reply
+            int assesments = 0;
+            int temp = 0;
+            int loop = 1;
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                while (loop <= 6)
+                {
+                    string query = "SELECT assignment" + loop + " FROM SARMS_assignments WHERE instance_id= " + class_id + ";";
+
+                    //create command
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        temp = dataReader.GetInt32(dataReader.GetOrdinal("assignment" + loop));
+                    }
+
+                    //if assignment exists for unit add 1
+                    if (temp != -1)
+                    {
+                        assesments = assesments + temp;
+                    }
+
+                    //close Data Reader
+                    dataReader.Close();
+
+                    loop = loop + 1;
+
+
+                }
+                //close Connection
+                this.CloseConnection();
+
+                return assesments;
+            }
+            //return 0
+            else
+            {
+                return assesments;
+            }
+        }
+
+        //
+
+        /*   //Backup
+            public void Backup()
+            {
+                try
+                {
+                    DateTime Time = DateTime.Now;
+                    int year = Time.Year;
+                    int month = Time.Month;
+                    int day = Time.Day;
+                    int hour = Time.Hour;
+                    int minute = Time.Minute;
+                    int second = Time.Second;
+                    int millisecond = Time.Millisecond;
+
+                    //Save file to C:\ with the current date as a filename
+                    string path;
+                    path = "C:\\MySqlBackup" + year + "-" + month + "-" + day +
+                "-" + hour + "-" + minute + "-" + second + "-" + millisecond + ".sql";
+                    StreamWriter file = new StreamWriter(path);
+
+
+                    ProcessStartInfo psi = new ProcessStartInfo();
+                    psi.FileName = "mysqldump";
+                    psi.RedirectStandardInput = false;
+                    psi.RedirectStandardOutput = true;
+                    psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
+                        uid, password, server, database);
+                    psi.UseShellExecute = false;
+
+                    Process process = Process.Start(psi);
+
+                    string output;
+                    output = process.StandardOutput.ReadToEnd();
+                    file.WriteLine(output);
+                    process.WaitForExit();
+                    file.Close();
+                    process.Close();
+                }
+                catch (IOException ex)
+                {
+                    MessageBox.Show("Error , unable to backup!");
+                }
+            }
+
+            //Restore
+            public void Restore()
+            {
+                try
+                {
+                    //Read file from C:\
+                    string path;
+                    path = "C:\\MySqlBackup.sql";
+                    StreamReader file = new StreamReader(path);
+                    string input = file.ReadToEnd();
+                    file.Close();
+
+                    ProcessStartInfo psi = new ProcessStartInfo();
+                    psi.FileName = "mysql";
+                    psi.RedirectStandardInput = true;
+                    psi.RedirectStandardOutput = false;
+                    psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
+                        uid, password, server, database);
+                    psi.UseShellExecute = false;
+
+
+                    Process process = Process.Start(psi);
+                    process.StandardInput.WriteLine(input);
+                    process.StandardInput.Close();
+                    process.WaitForExit();
+                    process.Close();
+                }
+                catch (IOException ex)
+                {
+                    MessageBox.Show("Error , unable to Restore!");
+                }
+            }
+
+
+            }*/
+    }
 
 }
