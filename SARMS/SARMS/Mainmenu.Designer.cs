@@ -56,6 +56,7 @@
             this.labelID = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
+            this.kill = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -215,6 +216,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.kill);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.textboxID);
             this.panel2.Controls.Add(this.button1);
@@ -354,6 +356,16 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "Suspended:";
             // 
+            // kill
+            // 
+            this.kill.Location = new System.Drawing.Point(149, 317);
+            this.kill.Name = "kill";
+            this.kill.Size = new System.Drawing.Size(75, 23);
+            this.kill.TabIndex = 9;
+            this.kill.Text = "kill";
+            this.kill.UseVisualStyleBackColor = true;
+            this.kill.Click += new System.EventHandler(this.kill_Click);
+            // 
             // MainMenu_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,5 +433,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelID;
+        private System.Windows.Forms.Button kill;
     }
 }

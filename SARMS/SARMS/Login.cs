@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -18,7 +19,7 @@ namespace SARMS
             InitializeComponent();
            
         }
-        
+
 
         private void login_button_Click(object sender, EventArgs e)
         {
@@ -36,7 +37,7 @@ namespace SARMS
                 //open main menu form
                 MainMenuForm.Show();
 
-                //close this form
+                //close this form                
                 this.Hide();
             }
             //if login is unsuccesful tell the user
@@ -45,10 +46,14 @@ namespace SARMS
                 //login unsuccesful
                 MessageBox.Show("invalid username or password", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
             }
-
-
-
         }
+            
+            
+
+
+        
+
+
 
         private void label4_Click(object sender, EventArgs e)
         {

@@ -33,22 +33,24 @@ namespace SARMS
 
 
             //initiate main loop
-            while (running == true)
+            /*while (running == true)
             {
                 //main loop of the program when this exits program exits
 
-            }
+            } */
+
+        
 
 
 
-
-
-            //application exit
-            Application.Exit();
+        //application exit
+        Application.Exit();
 
 
         }
+        
     }
+   
 
     class DBConnect
     {

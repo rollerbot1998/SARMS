@@ -79,7 +79,24 @@ namespace SARMS
             }    
             
         }
+        private void Admin_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (string.Equals((sender as Button).Name, @"CloseButton"))
+            {
+               Form loginform = new Form1();
+                loginform.Close();
+                Console.WriteLine("X button was pressed");
+            }
+            else
+            {
+                Console.WriteLine("X button was pressed");
+            }
+  }
 
-        
+        private void kill_Click(object sender, EventArgs e)
+        {
+            Form loginform = new Form1();
+            loginform.Close();
+        }
     }
 }
