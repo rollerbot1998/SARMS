@@ -66,8 +66,9 @@ namespace SARMS
                labelFname.Text = dbcon.Select_user_fname(id);
                labelLname.Text = dbcon.Select_user_lname(id);
                labelEmail.Text = dbcon.Select_user_email(id);
-               labelDob.Text = dbcon.Select_user_dob(id);               
-               //labelSuspended.Text = dbcon.Select_user_suspended(id);
+               labelID.Text = users_id +"";
+                labelDob.Text = dbcon.Select_user_dob(id);               
+               labelSuspended.Text = dbcon.Select_user_suspended(id)+"";
 
             }
             else
