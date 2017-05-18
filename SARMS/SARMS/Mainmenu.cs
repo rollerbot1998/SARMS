@@ -49,25 +49,36 @@ namespace SARMS
 
         private void About_Button_Click(object sender, EventArgs e)
         {
+            //display about form
             About aboutform = new About();
             aboutform.Show();
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        //clicking search button event
+        private void buttonSearch_Click(object sender, EventArgs e)
         {
             var dbcon = new DBConnect();
             int id = 0;
-            
-          if (int.TryParse(textBox1.Text, out id))
+            //parse text in textbox to int id
+          if (int.TryParse(textboxID.Text, out id))
             {
-               label1.Text = dbcon.Select_user_fname(id);
+                //replace label text with returned information
+               labelFname.Text = dbcon.Select_user_fname(id);
+               labelLname.Text = dbcon.Select_user_lname(id);
+               labelEmail.Text = dbcon.Select_user_email(id);
+               labelDob.Text = dbcon.Select_user_dob(id);               
+               //labelSuspended.Text = dbcon.Select_user_suspended(id);
+
             }
             else
             {
+                //failing parse display error message and clear textboxID
                 MessageBox.Show("invalid id", "unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                textboxID.Text = "";
             }    
             
         }
+
+        
     }
 }

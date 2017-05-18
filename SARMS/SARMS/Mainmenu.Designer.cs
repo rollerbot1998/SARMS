@@ -31,10 +31,14 @@
             this.About_Button = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.labelFname = new System.Windows.Forms.Label();
+            this.textboxID = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.labelLname = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.labelDob = new System.Windows.Forms.Label();
+            this.labelSuspended = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -62,9 +66,13 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.labelSuspended);
+            this.tabPage1.Controls.Add(this.labelDob);
+            this.tabPage1.Controls.Add(this.labelEmail);
+            this.tabPage1.Controls.Add(this.labelLname);
             this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.labelFname);
+            this.tabPage1.Controls.Add(this.textboxID);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -72,6 +80,32 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(757, 59);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(88, 24);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "buttonSearch";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // labelFname
+            // 
+            this.labelFname.AutoSize = true;
+            this.labelFname.Location = new System.Drawing.Point(754, 118);
+            this.labelFname.Name = "labelFname";
+            this.labelFname.Size = new System.Drawing.Size(61, 13);
+            this.labelFname.TabIndex = 1;
+            this.labelFname.Text = "labelFname";
+            // 
+            // textboxID
+            // 
+            this.textboxID.Location = new System.Drawing.Point(594, 58);
+            this.textboxID.Name = "textboxID";
+            this.textboxID.Size = new System.Drawing.Size(123, 20);
+            this.textboxID.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -83,31 +117,41 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // labelLname
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 62);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(123, 20);
-            this.textBox1.TabIndex = 0;
+            this.labelLname.AutoSize = true;
+            this.labelLname.Location = new System.Drawing.Point(754, 141);
+            this.labelLname.Name = "labelLname";
+            this.labelLname.Size = new System.Drawing.Size(61, 13);
+            this.labelLname.TabIndex = 3;
+            this.labelLname.Text = "labelLname";
             // 
-            // label1
+            // labelEmail
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(250, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Location = new System.Drawing.Point(754, 165);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(54, 13);
+            this.labelEmail.TabIndex = 4;
+            this.labelEmail.Text = "labelEmail";
             // 
-            // button1
+            // labelDob
             // 
-            this.button1.Location = new System.Drawing.Point(338, 59);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 24);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.labelDob.AutoSize = true;
+            this.labelDob.Location = new System.Drawing.Point(754, 190);
+            this.labelDob.Name = "labelDob";
+            this.labelDob.Size = new System.Drawing.Size(49, 13);
+            this.labelDob.TabIndex = 5;
+            this.labelDob.Text = "labelDob";
+            // 
+            // labelSuspended
+            // 
+            this.labelSuspended.AutoSize = true;
+            this.labelSuspended.Location = new System.Drawing.Point(754, 212);
+            this.labelSuspended.Name = "labelSuspended";
+            this.labelSuspended.Size = new System.Drawing.Size(83, 13);
+            this.labelSuspended.TabIndex = 6;
+            this.labelSuspended.Text = "labelSuspended";
             // 
             // MainMenu_Admin
             // 
@@ -138,7 +182,11 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label labelFname;
+        private System.Windows.Forms.TextBox textboxID;
+        private System.Windows.Forms.Label labelDob;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.Label labelLname;
+        private System.Windows.Forms.Label labelSuspended;
     }
 }
