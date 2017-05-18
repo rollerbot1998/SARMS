@@ -11,4 +11,4 @@ assingment5 int (3) DEFAULT 0,
 assingment6 int (3) DEFAULT 0
 );
 
-insert into SARMS_assignments  values (1, 000002001,'CAS324',0,0,0,0,0,0)
+insert into SARMS_assignments  values (1, 000002001,'CAS324',-1,-1,-1,-1,-1,-1)

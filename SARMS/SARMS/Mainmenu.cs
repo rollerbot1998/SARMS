@@ -13,6 +13,10 @@ namespace SARMS
 {
     public partial class MainMenu_Admin : Form
     {
+
+        
+
+
         //initialise variables
         int users_id = 0;
         string fname = "";
@@ -20,6 +24,9 @@ namespace SARMS
         string email = "";
         string dob = "";
         int suspended = 1;
+
+        
+         
 
         public MainMenu_Admin(int id)
         {
@@ -53,6 +60,7 @@ namespace SARMS
             About aboutform = new About();
             aboutform.Show();
 
+            
         }
         //clicking search button event
         private void buttonSearch_Click(object sender, EventArgs e)
