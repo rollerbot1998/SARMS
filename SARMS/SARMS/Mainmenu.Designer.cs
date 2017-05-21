@@ -45,33 +45,14 @@
             this.unitBox = new System.Windows.Forms.TextBox();
             this.PasswordBox = new System.Windows.Forms.TextBox();
             this.usernameBox = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.labelSuspended = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.labelFname = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.labelDob = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.labelEmail = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelLname = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelID = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.textboxID = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.enrol_in_unit_button = new System.Windows.Forms.Button();
             this.enrolUnit = new System.Windows.Forms.TextBox();
             this.SLName = new System.Windows.Forms.TextBox();
             this.SFName = new System.Windows.Forms.TextBox();
@@ -94,21 +75,44 @@
             this.addPassword = new System.Windows.Forms.Label();
             this.addtype = new System.Windows.Forms.Label();
             this.addUsername = new System.Windows.Forms.Label();
-            this.enrol_in_unit_button = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.labelID = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.labelLname = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.labelDob = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.labelFname = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.labelSuspended = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // About_Button
@@ -136,23 +140,19 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.Controls.Add(this.groupBox5);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(976, 631);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Search";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.displayPercentage);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.percentageLabel);
-            this.groupBox2.Controls.Add(this.classesDisplay);
+            this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.generate);
             this.groupBox2.Controls.Add(this.unit_label);
             this.groupBox2.Controls.Add(this.passwordLabel);
@@ -162,19 +162,19 @@
             this.groupBox2.Controls.Add(this.unitBox);
             this.groupBox2.Controls.Add(this.PasswordBox);
             this.groupBox2.Controls.Add(this.usernameBox);
-            this.groupBox2.Location = new System.Drawing.Point(13, 211);
+            this.groupBox2.Location = new System.Drawing.Point(6, 127);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(274, 414);
+            this.groupBox2.Size = new System.Drawing.Size(286, 498);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "generate report";
+            this.groupBox2.Text = "Generate Report";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // displayPercentage
             // 
             this.displayPercentage.AutoSize = true;
             this.displayPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayPercentage.Location = new System.Drawing.Point(202, 239);
+            this.displayPercentage.Location = new System.Drawing.Point(224, 26);
             this.displayPercentage.Name = "displayPercentage";
             this.displayPercentage.Size = new System.Drawing.Size(16, 24);
             this.displayPercentage.TabIndex = 17;
@@ -184,7 +184,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(0, 278);
+            this.label5.Location = new System.Drawing.Point(6, 77);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(161, 24);
             this.label5.TabIndex = 16;
@@ -194,7 +194,7 @@
             // 
             this.percentageLabel.AutoSize = true;
             this.percentageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.percentageLabel.Location = new System.Drawing.Point(6, 239);
+            this.percentageLabel.Location = new System.Drawing.Point(6, 26);
             this.percentageLabel.Name = "percentageLabel";
             this.percentageLabel.Size = new System.Drawing.Size(112, 24);
             this.percentageLabel.TabIndex = 15;
@@ -204,7 +204,7 @@
             // 
             this.classesDisplay.AutoSize = true;
             this.classesDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.classesDisplay.Location = new System.Drawing.Point(202, 278);
+            this.classesDisplay.Location = new System.Drawing.Point(224, 77);
             this.classesDisplay.Name = "classesDisplay";
             this.classesDisplay.Size = new System.Drawing.Size(16, 24);
             this.classesDisplay.TabIndex = 14;
@@ -212,18 +212,18 @@
             // 
             // generate
             // 
-            this.generate.Location = new System.Drawing.Point(72, 121);
+            this.generate.Location = new System.Drawing.Point(6, 310);
             this.generate.Name = "generate";
-            this.generate.Size = new System.Drawing.Size(118, 31);
+            this.generate.Size = new System.Drawing.Size(274, 31);
             this.generate.TabIndex = 13;
-            this.generate.Text = "Generate";
+            this.generate.Text = "Generate Report";
             this.generate.UseVisualStyleBackColor = true;
             this.generate.Click += new System.EventHandler(this.generate_Click);
             // 
             // unit_label
             // 
             this.unit_label.AutoSize = true;
-            this.unit_label.Location = new System.Drawing.Point(20, 97);
+            this.unit_label.Location = new System.Drawing.Point(23, 116);
             this.unit_label.Name = "unit_label";
             this.unit_label.Size = new System.Drawing.Size(57, 13);
             this.unit_label.TabIndex = 11;
@@ -232,7 +232,7 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(21, 63);
+            this.passwordLabel.Location = new System.Drawing.Point(24, 75);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(56, 13);
             this.passwordLabel.TabIndex = 10;
@@ -241,7 +241,7 @@
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(20, 32);
+            this.usernameLabel.Location = new System.Drawing.Point(24, 37);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(58, 13);
             this.usernameLabel.TabIndex = 9;
@@ -250,9 +250,9 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(25, 174);
+            this.progressBar1.Location = new System.Drawing.Point(6, 347);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(214, 36);
+            this.progressBar1.Size = new System.Drawing.Size(274, 20);
             this.progressBar1.TabIndex = 8;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
@@ -267,223 +267,27 @@
             // 
             // unitBox
             // 
-            this.unitBox.Location = new System.Drawing.Point(94, 94);
+            this.unitBox.Location = new System.Drawing.Point(100, 113);
             this.unitBox.MaxLength = 6;
             this.unitBox.Name = "unitBox";
-            this.unitBox.Size = new System.Drawing.Size(145, 20);
+            this.unitBox.Size = new System.Drawing.Size(146, 20);
             this.unitBox.TabIndex = 5;
             // 
             // PasswordBox
             // 
-            this.PasswordBox.Location = new System.Drawing.Point(95, 59);
+            this.PasswordBox.Location = new System.Drawing.Point(100, 72);
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.PasswordChar = '*';
-            this.PasswordBox.Size = new System.Drawing.Size(144, 20);
+            this.PasswordBox.Size = new System.Drawing.Size(146, 20);
             this.PasswordBox.TabIndex = 3;
             // 
             // usernameBox
             // 
-            this.usernameBox.Location = new System.Drawing.Point(94, 31);
+            this.usernameBox.Location = new System.Drawing.Point(100, 34);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(146, 20);
             this.usernameBox.TabIndex = 2;
             this.usernameBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.panel8);
-            this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(298, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(675, 625);
-            this.panel1.TabIndex = 9;
-            // 
-            // panel8
-            // 
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel8.Controls.Add(this.label10);
-            this.panel8.Controls.Add(this.labelSuspended);
-            this.panel8.Location = new System.Drawing.Point(3, 392);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(667, 72);
-            this.panel8.TabIndex = 11;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(22, 24);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(95, 20);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Suspended:";
-            // 
-            // labelSuspended
-            // 
-            this.labelSuspended.AutoSize = true;
-            this.labelSuspended.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSuspended.Location = new System.Drawing.Point(480, 24);
-            this.labelSuspended.Name = "labelSuspended";
-            this.labelSuspended.Size = new System.Drawing.Size(124, 20);
-            this.labelSuspended.TabIndex = 6;
-            this.labelSuspended.Text = "labelSuspended";
-            // 
-            // panel7
-            // 
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel7.Controls.Add(this.label8);
-            this.panel7.Controls.Add(this.labelFname);
-            this.panel7.Location = new System.Drawing.Point(4, 80);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(667, 72);
-            this.panel7.TabIndex = 11;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(20, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 20);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "First Name:";
-            // 
-            // labelFname
-            // 
-            this.labelFname.AutoSize = true;
-            this.labelFname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFname.Location = new System.Drawing.Point(479, 24);
-            this.labelFname.Name = "labelFname";
-            this.labelFname.Size = new System.Drawing.Size(92, 20);
-            this.labelFname.TabIndex = 1;
-            this.labelFname.Text = "labelFname";
-            // 
-            // panel6
-            // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel6.Controls.Add(this.label6);
-            this.panel6.Controls.Add(this.labelDob);
-            this.panel6.Location = new System.Drawing.Point(3, 314);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(667, 72);
-            this.panel6.TabIndex = 10;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(22, 24);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 20);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Date of Birth:";
-            // 
-            // labelDob
-            // 
-            this.labelDob.AutoSize = true;
-            this.labelDob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDob.Location = new System.Drawing.Point(480, 24);
-            this.labelDob.Name = "labelDob";
-            this.labelDob.Size = new System.Drawing.Size(72, 20);
-            this.labelDob.TabIndex = 5;
-            this.labelDob.Text = "labelDob";
-            // 
-            // panel5
-            // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.labelEmail);
-            this.panel5.Location = new System.Drawing.Point(3, 236);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(667, 72);
-            this.panel5.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 20);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Email:";
-            // 
-            // labelEmail
-            // 
-            this.labelEmail.AutoSize = true;
-            this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmail.Location = new System.Drawing.Point(480, 24);
-            this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(81, 20);
-            this.labelEmail.TabIndex = 4;
-            this.labelEmail.Text = "labelEmail";
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.labelLname);
-            this.panel4.Location = new System.Drawing.Point(3, 158);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(667, 72);
-            this.panel4.TabIndex = 8;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Last Name:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // labelLname
-            // 
-            this.labelLname.AutoSize = true;
-            this.labelLname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLname.Location = new System.Drawing.Point(480, 24);
-            this.labelLname.Name = "labelLname";
-            this.labelLname.Size = new System.Drawing.Size(91, 20);
-            this.labelLname.TabIndex = 3;
-            this.labelLname.Text = "labelLname";
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.labelID);
-            this.panel3.Location = new System.Drawing.Point(3, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(667, 72);
-            this.panel3.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "User ID:";
-            // 
-            // labelID
-            // 
-            this.labelID.AutoSize = true;
-            this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelID.Location = new System.Drawing.Point(480, 24);
-            this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(59, 20);
-            this.labelID.TabIndex = 3;
-            this.labelID.Text = "labelID";
-            this.labelID.UseWaitCursor = true;
             // 
             // textBox1
             // 
@@ -495,21 +299,10 @@
             this.textBox1.Text = "Welcome.\r\nTo begin, enter valid credentials via the panel below to\r\nreturn all re" +
     "lated information on the right.";
             // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textboxID);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(6, 127);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(285, 500);
-            this.panel2.TabIndex = 10;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 19);
+            this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 8;
@@ -517,14 +310,15 @@
             // 
             // textboxID
             // 
-            this.textboxID.Location = new System.Drawing.Point(27, 16);
+            this.textboxID.Location = new System.Drawing.Point(56, 13);
             this.textboxID.Name = "textboxID";
-            this.textboxID.Size = new System.Drawing.Size(123, 20);
+            this.textboxID.Size = new System.Drawing.Size(146, 20);
             this.textboxID.TabIndex = 0;
+            this.textboxID.TextChanged += new System.EventHandler(this.textboxID_TextChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(176, 13);
+            this.button1.Location = new System.Drawing.Point(233, 10);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 24);
             this.button1.TabIndex = 2;
@@ -551,7 +345,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(976, 631);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Accounts";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -569,6 +363,16 @@
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Add unit to student";
+            // 
+            // enrol_in_unit_button
+            // 
+            this.enrol_in_unit_button.Location = new System.Drawing.Point(109, 189);
+            this.enrol_in_unit_button.Name = "enrol_in_unit_button";
+            this.enrol_in_unit_button.Size = new System.Drawing.Size(191, 29);
+            this.enrol_in_unit_button.TabIndex = 6;
+            this.enrol_in_unit_button.Text = "Enrol";
+            this.enrol_in_unit_button.UseVisualStyleBackColor = true;
+            this.enrol_in_unit_button.Click += new System.EventHandler(this.enrol_in_unit_button_Click);
             // 
             // enrolUnit
             // 
@@ -775,15 +579,242 @@
             this.addUsername.TabIndex = 0;
             this.addUsername.Text = "Username";
             // 
-            // enrol_in_unit_button
+            // backgroundWorker1
             // 
-            this.enrol_in_unit_button.Location = new System.Drawing.Point(109, 189);
-            this.enrol_in_unit_button.Name = "enrol_in_unit_button";
-            this.enrol_in_unit_button.Size = new System.Drawing.Size(191, 29);
-            this.enrol_in_unit_button.TabIndex = 6;
-            this.enrol_in_unit_button.Text = "Enrol";
-            this.enrol_in_unit_button.UseVisualStyleBackColor = true;
-            this.enrol_in_unit_button.Click += new System.EventHandler(this.enrol_in_unit_button_Click);
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.percentageLabel);
+            this.groupBox4.Controls.Add(this.displayPercentage);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.classesDisplay);
+            this.groupBox4.Location = new System.Drawing.Point(6, 376);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(279, 116);
+            this.groupBox4.TabIndex = 18;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Results";
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.labelID);
+            this.panel3.Location = new System.Drawing.Point(6, 153);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(646, 72);
+            this.panel3.TabIndex = 7;
+            // 
+            // labelID
+            // 
+            this.labelID.AutoSize = true;
+            this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelID.Location = new System.Drawing.Point(422, 24);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(14, 20);
+            this.labelID.TabIndex = 3;
+            this.labelID.Text = "-";
+            this.labelID.UseWaitCursor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(22, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "User ID:";
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.labelLname);
+            this.panel4.Location = new System.Drawing.Point(6, 309);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(646, 72);
+            this.panel4.TabIndex = 8;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // labelLname
+            // 
+            this.labelLname.AutoSize = true;
+            this.labelLname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLname.Location = new System.Drawing.Point(422, 24);
+            this.labelLname.Name = "labelLname";
+            this.labelLname.Size = new System.Drawing.Size(14, 20);
+            this.labelLname.TabIndex = 3;
+            this.labelLname.Text = "-";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(21, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Last Name:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.labelEmail);
+            this.panel5.Location = new System.Drawing.Point(6, 387);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(646, 72);
+            this.panel5.TabIndex = 9;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // labelEmail
+            // 
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmail.Location = new System.Drawing.Point(422, 24);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(14, 20);
+            this.labelEmail.TabIndex = 4;
+            this.labelEmail.Text = "-";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(22, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Email:";
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.labelDob);
+            this.panel6.Location = new System.Drawing.Point(6, 465);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(646, 72);
+            this.panel6.TabIndex = 10;
+            // 
+            // labelDob
+            // 
+            this.labelDob.AutoSize = true;
+            this.labelDob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDob.Location = new System.Drawing.Point(422, 24);
+            this.labelDob.Name = "labelDob";
+            this.labelDob.Size = new System.Drawing.Size(14, 20);
+            this.labelDob.TabIndex = 5;
+            this.labelDob.Text = "-";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(22, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 20);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Date of Birth:";
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.label8);
+            this.panel7.Controls.Add(this.labelFname);
+            this.panel7.Location = new System.Drawing.Point(6, 231);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(646, 72);
+            this.panel7.TabIndex = 11;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
+            // 
+            // labelFname
+            // 
+            this.labelFname.AutoSize = true;
+            this.labelFname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFname.Location = new System.Drawing.Point(422, 24);
+            this.labelFname.Name = "labelFname";
+            this.labelFname.Size = new System.Drawing.Size(14, 20);
+            this.labelFname.TabIndex = 1;
+            this.labelFname.Text = "-";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(20, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 20);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "First Name:";
+            // 
+            // panel8
+            // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.label10);
+            this.panel8.Controls.Add(this.labelSuspended);
+            this.panel8.Location = new System.Drawing.Point(6, 543);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(646, 72);
+            this.panel8.TabIndex = 11;
+            // 
+            // labelSuspended
+            // 
+            this.labelSuspended.AutoSize = true;
+            this.labelSuspended.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSuspended.Location = new System.Drawing.Point(422, 24);
+            this.labelSuspended.Name = "labelSuspended";
+            this.labelSuspended.Size = new System.Drawing.Size(14, 20);
+            this.labelSuspended.TabIndex = 6;
+            this.labelSuspended.Text = "-";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(22, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 20);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Suspended:";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.groupBox6);
+            this.groupBox5.Controls.Add(this.panel7);
+            this.groupBox5.Controls.Add(this.panel8);
+            this.groupBox5.Controls.Add(this.panel3);
+            this.groupBox5.Controls.Add(this.panel6);
+            this.groupBox5.Controls.Add(this.panel5);
+            this.groupBox5.Controls.Add(this.panel4);
+            this.groupBox5.Location = new System.Drawing.Point(312, 4);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(658, 621);
+            this.groupBox5.TabIndex = 9;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Account Information";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.progressBar2);
+            this.groupBox6.Controls.Add(this.label1);
+            this.groupBox6.Controls.Add(this.button1);
+            this.groupBox6.Controls.Add(this.textboxID);
+            this.groupBox6.Location = new System.Drawing.Point(15, 19);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(328, 97);
+            this.groupBox6.TabIndex = 12;
+            this.groupBox6.TabStop = false;
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.Location = new System.Drawing.Point(9, 56);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(311, 21);
+            this.progressBar2.TabIndex = 9;
             // 
             // MainMenu_Admin
             // 
@@ -805,26 +836,28 @@
             this.tabPage1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -836,40 +869,17 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label labelFname;
         private System.Windows.Forms.TextBox textboxID;
-        private System.Windows.Forms.Label labelDob;
-        private System.Windows.Forms.Label labelEmail;
-        private System.Windows.Forms.Label labelLname;
-        private System.Windows.Forms.Label labelSuspended;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox usernameBox;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox PasswordBox;
         private System.Windows.Forms.Button generateButton;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox unitBox;
         private System.Windows.Forms.ProgressBar progressBar1;
 
        
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel5;
-   
-        private System.Windows.Forms.Panel panel4;
-      
-        private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Button generate;
         private System.Windows.Forms.Label unit_label;
@@ -903,5 +913,28 @@
         private System.Windows.Forms.Label SLNamelabel;
         private System.Windows.Forms.Label SFNamelabel;
         private System.Windows.Forms.Button enrol_in_unit_button;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelFname;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label labelSuspended;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelID;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelDob;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelLname;
+        private System.Windows.Forms.ProgressBar progressBar2;
     }
 }

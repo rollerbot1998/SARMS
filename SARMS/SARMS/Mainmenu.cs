@@ -65,25 +65,29 @@ namespace SARMS
         //clicking search button event
         private void buttonSearch_Click(object sender, EventArgs e)
         {
+            progressBar2.Value = 10;
             var dbcon = new DBConnect();
             int id = 0;
+            progressBar2.Value = 25;
             //parse text in textbox to int id
           if (int.TryParse(textboxID.Text, out id))
             {
+                progressBar2.Value = 50;
                 //replace label text with returned information
-               labelFname.Text = dbcon.Select_user_fname(id);
+                labelFname.Text = dbcon.Select_user_fname(id);
                labelLname.Text = dbcon.Select_user_lname(id);
                labelEmail.Text = dbcon.Select_user_email(id);
                labelID.Text = users_id +"";
                 labelDob.Text = dbcon.Select_user_dob(id);               
                labelSuspended.Text = dbcon.Select_user_suspended(id)+"";
-
+                progressBar2.Value = 100;
             }
             else
             {
                 //failing parse display error message and clear textboxID
                 MessageBox.Show("invalid id", "unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
                 textboxID.Text = "";
+                progressBar2.Value = 0;
             }    
             
         }
@@ -359,6 +363,31 @@ namespace SARMS
             {
                 MessageBox.Show("Unit " + unit + " does not exist, make sure you spelt it with uppercase letters e.g CAS324", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
             }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textboxID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
