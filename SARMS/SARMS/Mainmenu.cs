@@ -64,32 +64,8 @@ namespace SARMS
         }
         //clicking search button event
         private void buttonSearch_Click(object sender, EventArgs e)
-        {
-            progressBar2.Value = 10;
-            var dbcon = new DBConnect();
-            int id = 0;
-            progressBar2.Value = 25;
-            //parse text in textbox to int id
-          if (int.TryParse(textboxID.Text, out id))
-            {
-                progressBar2.Value = 50;
-                //replace label text with returned information
-                labelFname.Text = dbcon.Select_user_fname(id);
-               labelLname.Text = dbcon.Select_user_lname(id);
-               labelEmail.Text = dbcon.Select_user_email(id);
-               labelID.Text = users_id +"";
-                labelDob.Text = dbcon.Select_user_dob(id);               
-               labelSuspended.Text = dbcon.Select_user_suspended(id)+"";
-                progressBar2.Value = 100;
-            }
-            else
-            {
-                //failing parse display error message and clear textboxID
-                MessageBox.Show("invalid id", "unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
-                textboxID.Text = "";
-                progressBar2.Value = 0;
-            }    
-            
+        {           
+
         }
         private void Admin_Main_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -199,6 +175,11 @@ namespace SARMS
                         display = string.Format("{0:N2}", percent);
                         //display percentage
                         displayPercentage.Text = display;
+                        labelFname.Text = dbcon.Select_user_fname(id);
+                        labelLname.Text = dbcon.Select_user_lname(id);
+                        labelEmail.Text = dbcon.Select_user_email(id);
+                        labelID.Text = users_id + "";
+                        labelDob.Text = dbcon.Select_user_dob(id);                        
                     }
                     else
                     {
@@ -388,6 +369,34 @@ namespace SARMS
         private void textboxID_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonSearch_Click_1(object sender, EventArgs e)
+        {
+            int id = 0;
+            progressBar2.Value = 10;
+            var dbcon = new DBConnect();
+            progressBar2.Value = 25;
+            //parse text in textbox to int id
+            if (int.TryParse(textboxIDA.Text, out id))
+            {
+                progressBar2.Value = 50;
+                //replace label text with returned information
+                labelFnameA.Text = dbcon.Select_user_fname(id);
+                labelLnameA.Text = dbcon.Select_user_lname(id);
+                labelEmailA.Text = dbcon.Select_user_email(id);
+                labelIDA.Text = users_id + "";
+                labelDobA.Text = dbcon.Select_user_dob(id);
+                labelSuspendedA.Text = dbcon.Select_user_suspended(id) + "";
+                progressBar2.Value = 100;
+            }
+            else
+            {
+                //failing parse display error message and clear textboxID
+                MessageBox.Show("Invalid id", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                textboxIDA.Text = "";
+                progressBar2.Value = 0;
+            }
         }
     }
 }
