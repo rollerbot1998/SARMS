@@ -42,6 +42,10 @@ namespace SARMS
                 //close this form                              
                 this.Hide();                
             }
+            /*else if (id >= 501)
+            {
+                //TODO launch separate form
+            }*/
             //if login is unsuccesful tell the user
             else
             {

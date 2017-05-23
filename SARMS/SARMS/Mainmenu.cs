@@ -108,7 +108,7 @@ namespace SARMS
             string password = PasswordBox.Text;
             string unit = unitBox.Text;
             int id = 0;
-
+            
             //reset loading bar
             progressBar1.Value = 0;
 
@@ -404,7 +404,7 @@ namespace SARMS
             //set variables
             int converted_assnum;
             int converted_result;
-
+            progressBar4.Value = 0;
 
             //convert assignment number from string
             bool result = Int32.TryParse(Assignment_number.Text, out converted_assnum);
@@ -427,6 +427,7 @@ namespace SARMS
             result = Int32.TryParse(Assignment_result.Text, out converted_result);
             if (result)
             {
+                progressBar4.Value = 50;
                 Console.WriteLine("Converted assignment number.", Assignment_number.Text, converted_result);
             }
             else
@@ -435,6 +436,7 @@ namespace SARMS
                 Console.WriteLine("Attempted conversion of assignment result failed.");
 
                 MessageBox.Show("Invalid result number", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                progressBar4.Value = 0;
                 return;
             }
 
@@ -450,6 +452,7 @@ namespace SARMS
             //make sure usernumber returned non 0
             if (usernumber != 0)
             {
+                progressBar4.Value = 50;
                 int assignment_id = dbcon.get_assignment_id(usernumber, Unit_code.Text);
 
                 //check id isn't 0
@@ -461,6 +464,7 @@ namespace SARMS
 
                     if (success)
                     {
+                        progressBar4.Value = 100;
                         MessageBox.Show("results added", "success", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
                     }
                 }
@@ -482,7 +486,7 @@ namespace SARMS
 
         private void Submit_attendance_Click(object sender, EventArgs e)
         {
-
+            progressBar3.Value = 0;
             int class_number;
 
             //check if attended is ticked or not
@@ -504,6 +508,7 @@ namespace SARMS
                 Console.WriteLine("Attempted conversion of class number failed.");
 
                 MessageBox.Show("Invalid class number", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                progressBar3.Value = 0;
                 return;
             }
 
@@ -511,7 +516,7 @@ namespace SARMS
 
             //make dbcon object
             var dbcon = new DBConnect();
-
+            progressBar3.Value = 10;
             //get the user number of the student 
             int usernumber = dbcon.get_user_id(Students_username.Text);
             //make sure usernumber returned non 0
@@ -523,11 +528,13 @@ namespace SARMS
                 if (class_id != 0)
                 {
                     //commit class
+                    progressBar3.Value = 50;
                     bool success = dbcon.set_class_attendance(class_id, class_number, attended);
 
                     if (success)
                     {
                         MessageBox.Show("results added", "success", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                        progressBar3.Value = 100;
                     }
                 }
                 //class table entry not found
@@ -541,6 +548,11 @@ namespace SARMS
             {
                 MessageBox.Show("Invalid username", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
             }
+        }
+
+        private void textBoxRetreival_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

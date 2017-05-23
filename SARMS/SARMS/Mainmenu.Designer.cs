@@ -60,19 +60,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.Submit_attendance = new System.Windows.Forms.Button();
             this.checkBoxAttended = new System.Windows.Forms.CheckBox();
             this.Class_number = new System.Windows.Forms.TextBox();
             this.labal_calss_num = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.Submit_result = new System.Windows.Forms.Button();
             this.Assignment_result = new System.Windows.Forms.TextBox();
-            this.Unit_code = new System.Windows.Forms.TextBox();
             this.Assignment_number = new System.Windows.Forms.TextBox();
-            this.Students_username = new System.Windows.Forms.TextBox();
             this.assresult = new System.Windows.Forms.Label();
-            this.unitcodelabel = new System.Windows.Forms.Label();
             this.Assnum = new System.Windows.Forms.Label();
+            this.Unit_code = new System.Windows.Forms.TextBox();
             this.sun = new System.Windows.Forms.Label();
+            this.unitcodelabel = new System.Windows.Forms.Label();
+            this.Students_username = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
@@ -118,7 +119,10 @@
             this.addtype = new System.Windows.Forms.Label();
             this.addUsername = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.Submit_attendance = new System.Windows.Forms.Button();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.progressBar3 = new System.Windows.Forms.ProgressBar();
+            this.progressBar4 = new System.Windows.Forms.ProgressBar();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -133,6 +137,7 @@
             this.groupBox8.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
             // About_Button
@@ -191,9 +196,9 @@
             // 
             // generate
             // 
-            this.generate.Location = new System.Drawing.Point(6, 435);
+            this.generate.Location = new System.Drawing.Point(6, 411);
             this.generate.Name = "generate";
-            this.generate.Size = new System.Drawing.Size(274, 31);
+            this.generate.Size = new System.Drawing.Size(274, 55);
             this.generate.TabIndex = 13;
             this.generate.Text = "Generate Report";
             this.generate.UseVisualStyleBackColor = true;
@@ -275,8 +280,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(286, 118);
             this.textBox1.TabIndex = 7;
-            this.textBox1.Text = "Welcome.\r\nTo begin, enter valid credentials via the panel below to\r\nreturn all re" +
-    "lated information on the right.";
+            this.textBox1.Text = "Welcome.\r\nTo begin, enter valid credentials via the panel below to\r\nreturn relate" +
+    "d user and course information on the right.";
             // 
             // groupBox5
             // 
@@ -455,12 +460,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.groupBox11);
             this.tabPage2.Controls.Add(this.groupBox10);
             this.tabPage2.Controls.Add(this.groupBox6);
-            this.tabPage2.Controls.Add(this.Unit_code);
-            this.tabPage2.Controls.Add(this.sun);
-            this.tabPage2.Controls.Add(this.unitcodelabel);
-            this.tabPage2.Controls.Add(this.Students_username);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -471,16 +474,27 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.progressBar3);
             this.groupBox10.Controls.Add(this.Submit_attendance);
             this.groupBox10.Controls.Add(this.checkBoxAttended);
             this.groupBox10.Controls.Add(this.Class_number);
             this.groupBox10.Controls.Add(this.labal_calss_num);
-            this.groupBox10.Location = new System.Drawing.Point(342, 133);
+            this.groupBox10.Location = new System.Drawing.Point(337, 3);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(318, 481);
+            this.groupBox10.Size = new System.Drawing.Size(338, 287);
             this.groupBox10.TabIndex = 1;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Input class attendance";
+            // 
+            // Submit_attendance
+            // 
+            this.Submit_attendance.Location = new System.Drawing.Point(6, 219);
+            this.Submit_attendance.Name = "Submit_attendance";
+            this.Submit_attendance.Size = new System.Drawing.Size(326, 38);
+            this.Submit_attendance.TabIndex = 4;
+            this.Submit_attendance.Text = "Submit";
+            this.Submit_attendance.UseVisualStyleBackColor = true;
+            this.Submit_attendance.Click += new System.EventHandler(this.Submit_attendance_Click);
             // 
             // checkBoxAttended
             // 
@@ -494,15 +508,15 @@
             // 
             // Class_number
             // 
-            this.Class_number.Location = new System.Drawing.Point(124, 33);
+            this.Class_number.Location = new System.Drawing.Point(141, 33);
             this.Class_number.Name = "Class_number";
-            this.Class_number.Size = new System.Drawing.Size(136, 20);
+            this.Class_number.Size = new System.Drawing.Size(161, 20);
             this.Class_number.TabIndex = 1;
             // 
             // labal_calss_num
             // 
             this.labal_calss_num.AutoSize = true;
-            this.labal_calss_num.Location = new System.Drawing.Point(18, 36);
+            this.labal_calss_num.Location = new System.Drawing.Point(13, 36);
             this.labal_calss_num.Name = "labal_calss_num";
             this.labal_calss_num.Size = new System.Drawing.Size(70, 13);
             this.labal_calss_num.TabIndex = 0;
@@ -510,23 +524,24 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.progressBar4);
             this.groupBox6.Controls.Add(this.Submit_result);
             this.groupBox6.Controls.Add(this.Assignment_result);
             this.groupBox6.Controls.Add(this.Assignment_number);
             this.groupBox6.Controls.Add(this.assresult);
             this.groupBox6.Controls.Add(this.Assnum);
-            this.groupBox6.Location = new System.Drawing.Point(12, 133);
+            this.groupBox6.Location = new System.Drawing.Point(337, 299);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(319, 482);
+            this.groupBox6.Size = new System.Drawing.Size(341, 326);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Input assignment results";
             // 
             // Submit_result
             // 
-            this.Submit_result.Location = new System.Drawing.Point(64, 208);
+            this.Submit_result.Location = new System.Drawing.Point(6, 256);
             this.Submit_result.Name = "Submit_result";
-            this.Submit_result.Size = new System.Drawing.Size(166, 36);
+            this.Submit_result.Size = new System.Drawing.Size(326, 38);
             this.Submit_result.TabIndex = 8;
             this.Submit_result.Text = "Submit";
             this.Submit_result.UseVisualStyleBackColor = true;
@@ -539,26 +554,12 @@
             this.Assignment_result.Size = new System.Drawing.Size(161, 20);
             this.Assignment_result.TabIndex = 7;
             // 
-            // Unit_code
-            // 
-            this.Unit_code.Location = new System.Drawing.Point(301, 71);
-            this.Unit_code.Name = "Unit_code";
-            this.Unit_code.Size = new System.Drawing.Size(161, 20);
-            this.Unit_code.TabIndex = 6;
-            // 
             // Assignment_number
             // 
             this.Assignment_number.Location = new System.Drawing.Point(141, 36);
             this.Assignment_number.Name = "Assignment_number";
             this.Assignment_number.Size = new System.Drawing.Size(161, 20);
             this.Assignment_number.TabIndex = 5;
-            // 
-            // Students_username
-            // 
-            this.Students_username.Location = new System.Drawing.Point(301, 22);
-            this.Students_username.Name = "Students_username";
-            this.Students_username.Size = new System.Drawing.Size(161, 20);
-            this.Students_username.TabIndex = 4;
             // 
             // assresult
             // 
@@ -569,15 +570,6 @@
             this.assresult.TabIndex = 3;
             this.assresult.Text = "Assignment result";
             // 
-            // unitcodelabel
-            // 
-            this.unitcodelabel.AutoSize = true;
-            this.unitcodelabel.Location = new System.Drawing.Point(197, 71);
-            this.unitcodelabel.Name = "unitcodelabel";
-            this.unitcodelabel.Size = new System.Drawing.Size(53, 13);
-            this.unitcodelabel.TabIndex = 2;
-            this.unitcodelabel.Text = "Unit code";
-            // 
             // Assnum
             // 
             this.Assnum.AutoSize = true;
@@ -587,14 +579,37 @@
             this.Assnum.TabIndex = 1;
             this.Assnum.Text = "Assignment number";
             // 
+            // Unit_code
+            // 
+            this.Unit_code.Location = new System.Drawing.Point(131, 68);
+            this.Unit_code.Name = "Unit_code";
+            this.Unit_code.Size = new System.Drawing.Size(161, 20);
+            this.Unit_code.TabIndex = 6;
+            // 
             // sun
             // 
             this.sun.AutoSize = true;
-            this.sun.Location = new System.Drawing.Point(150, 22);
+            this.sun.Location = new System.Drawing.Point(1, 26);
             this.sun.Name = "sun";
             this.sun.Size = new System.Drawing.Size(100, 13);
             this.sun.TabIndex = 0;
             this.sun.Text = "Student\'s username";
+            // 
+            // unitcodelabel
+            // 
+            this.unitcodelabel.AutoSize = true;
+            this.unitcodelabel.Location = new System.Drawing.Point(1, 68);
+            this.unitcodelabel.Name = "unitcodelabel";
+            this.unitcodelabel.Size = new System.Drawing.Size(53, 13);
+            this.unitcodelabel.TabIndex = 2;
+            this.unitcodelabel.Text = "Unit code";
+            // 
+            // Students_username
+            // 
+            this.Students_username.Location = new System.Drawing.Point(131, 23);
+            this.Students_username.Name = "Students_username";
+            this.Students_username.Size = new System.Drawing.Size(161, 20);
+            this.Students_username.TabIndex = 4;
             // 
             // tabPage3
             // 
@@ -1040,15 +1055,42 @@
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
-            // Submit_attendance
+            // groupBox11
             // 
-            this.Submit_attendance.Location = new System.Drawing.Point(81, 205);
-            this.Submit_attendance.Name = "Submit_attendance";
-            this.Submit_attendance.Size = new System.Drawing.Size(151, 38);
-            this.Submit_attendance.TabIndex = 4;
-            this.Submit_attendance.Text = "Submit";
-            this.Submit_attendance.UseVisualStyleBackColor = true;
-            this.Submit_attendance.Click += new System.EventHandler(this.Submit_attendance_Click);
+            this.groupBox11.Controls.Add(this.Unit_code);
+            this.groupBox11.Controls.Add(this.sun);
+            this.groupBox11.Controls.Add(this.unitcodelabel);
+            this.groupBox11.Controls.Add(this.Students_username);
+            this.groupBox11.Location = new System.Drawing.Point(11, 130);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(320, 495);
+            this.groupBox11.TabIndex = 7;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Student Credentials";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(6, 6);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(325, 118);
+            this.textBox2.TabIndex = 8;
+            this.textBox2.Text = "Please enter student details below.\r\nOnce entered, data may be added to their acc" +
+    "ounts using the controls to the right.\r\n";
+            // 
+            // progressBar3
+            // 
+            this.progressBar3.Location = new System.Drawing.Point(6, 261);
+            this.progressBar3.Name = "progressBar3";
+            this.progressBar3.Size = new System.Drawing.Size(326, 20);
+            this.progressBar3.TabIndex = 9;
+            // 
+            // progressBar4
+            // 
+            this.progressBar4.Location = new System.Drawing.Point(6, 300);
+            this.progressBar4.Name = "progressBar4";
+            this.progressBar4.Size = new System.Drawing.Size(329, 20);
+            this.progressBar4.TabIndex = 10;
             // 
             // MainMenu_Admin
             // 
@@ -1090,6 +1132,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1189,5 +1233,9 @@
         private System.Windows.Forms.TextBox Class_number;
         private System.Windows.Forms.Label labal_calss_num;
         private System.Windows.Forms.Button Submit_attendance;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.ProgressBar progressBar3;
+        private System.Windows.Forms.ProgressBar progressBar4;
     }
 }
