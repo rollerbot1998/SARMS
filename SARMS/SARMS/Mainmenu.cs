@@ -14,7 +14,7 @@ namespace SARMS
     public partial class MainMenu_Admin : Form
     {
 
-        
+
 
 
         //initialise variables
@@ -25,8 +25,8 @@ namespace SARMS
         string dob = "";
         int suspended = 1;
 
-        
-         
+
+
 
         public MainMenu_Admin(int id)
         {
@@ -36,7 +36,7 @@ namespace SARMS
             //load all of users data from the database
             //setup connection
             var dbcon = new DBConnect();
-            
+
             fname = dbcon.Select_user_fname(id);
 
             lname = dbcon.Select_user_lname(id);
@@ -46,7 +46,7 @@ namespace SARMS
             dob = dbcon.Select_user_dob(id);
 
             suspended = dbcon.Select_user_suspended(id);
-            
+
         }
 
         private void MainMenu_Admin_Load(object sender, EventArgs e)
@@ -60,18 +60,18 @@ namespace SARMS
             About aboutform = new About();
             aboutform.Show();
 
-            
+
         }
         //clicking search button event
         private void buttonSearch_Click(object sender, EventArgs e)
-        {           
+        {
 
         }
         private void Admin_Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (string.Equals((sender as Button).Name, @"CloseButton"))
             {
-               Form loginform = new Form1();
+                Form loginform = new Form1();
                 loginform.Close();
                 Console.WriteLine("X button was pressed");
             }
@@ -79,7 +79,7 @@ namespace SARMS
             {
                 Console.WriteLine("X button was pressed");
             }
-  }
+        }
 
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -125,7 +125,7 @@ namespace SARMS
                 PasswordBox.Text = "";
                 unitBox.Text = "";
                 progressBar1.Value = 0;
-                   
+
             }
 
             else
@@ -162,11 +162,11 @@ namespace SARMS
                         int no_of_assesments = dbcon.get_total_assesments(link_table_id);
                         if (no_of_assesments != 0)
                         {
-                             percent = student_assesment_total / no_of_assesments;
+                            percent = student_assesment_total / no_of_assesments;
                         }
                         else
                         {
-                             percent = 0;
+                            percent = 0;
                         }
                         //update loading bar
                         progressBar1.Value = 100;
@@ -179,7 +179,7 @@ namespace SARMS
                         labelLname.Text = dbcon.Select_user_lname(id);
                         labelEmail.Text = dbcon.Select_user_email(id);
                         labelID.Text = users_id + "";
-                        labelDob.Text = dbcon.Select_user_dob(id);                        
+                        labelDob.Text = dbcon.Select_user_dob(id);
                     }
                     else
                     {
@@ -190,7 +190,7 @@ namespace SARMS
                 else
                 {
                     //invalid unit
-                    MessageBox.Show("Invalid unit", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);                    
+                    MessageBox.Show("Invalid unit", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
                     unitBox.Text = "";
                     progressBar1.Value = 0;
                 }
@@ -201,7 +201,7 @@ namespace SARMS
         private void progressBar1_Click(object sender, EventArgs e)
         {
 
-        }    
+        }
 
         private void label5_Click(object sender, EventArgs e)
         {
@@ -230,7 +230,7 @@ namespace SARMS
                 case "Admin":
                     type = 1;
                     break;
-             }
+            }
 
             string username = usernameTextbox.Text;
             string password = passwordTextbox.Text;
@@ -241,7 +241,7 @@ namespace SARMS
             string dob = dateTimePicker.Value.ToString("dd/MM/yyyy");
 
             //check fields are not empty if one is return
-            if (type ==0)
+            if (type == 0)
             {
                 MessageBox.Show("invalid type", "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
                 return;
@@ -280,7 +280,7 @@ namespace SARMS
 
             if (check != 0)
             {
-                MessageBox.Show("user already exists with id "+check, "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                MessageBox.Show("user already exists with id " + check, "unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
                 return;
             }
 
@@ -295,7 +295,7 @@ namespace SARMS
             //commit to database
 
             dbcon.Add_SARMS_User(type, username, password, fname, lname, email, dob);
-            MessageBox.Show("User "+ username +" created succesfuly", "Success", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            MessageBox.Show("User " + username + " created succesfuly", "Success", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
 
 
         }
@@ -398,5 +398,150 @@ namespace SARMS
                 progressBar2.Value = 0;
             }
         }
+
+        private void Submit_result_Click(object sender, EventArgs e)
+        {
+            //set variables
+            int converted_assnum;
+            int converted_result;
+
+
+            //convert assignment number from string
+            bool result = Int32.TryParse(Assignment_number.Text, out converted_assnum);
+            if (result)
+            {
+                Console.WriteLine("Converted assignment number.", Assignment_number.Text, converted_assnum);
+            }
+            else
+            {
+
+                Console.WriteLine("Attempted conversion of assignment number failed.");
+
+                MessageBox.Show("Invalid assignment number", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+
+
+
+            //convert result from string
+            result = Int32.TryParse(Assignment_result.Text, out converted_result);
+            if (result)
+            {
+                Console.WriteLine("Converted assignment number.", Assignment_number.Text, converted_result);
+            }
+            else
+            {
+
+                Console.WriteLine("Attempted conversion of assignment result failed.");
+
+                MessageBox.Show("Invalid result number", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+
+
+
+
+            //make dbcon object
+            var dbcon = new DBConnect();
+
+            //get the user number of the student 
+            int usernumber = dbcon.get_user_id(Students_username.Text);
+
+            //make sure usernumber returned non 0
+            if (usernumber != 0)
+            {
+                int assignment_id = dbcon.get_assignment_id(usernumber, Unit_code.Text);
+
+                //check id isn't 0
+                if (assignment_id != 0)
+                {
+
+                    //commit result
+                    bool success = dbcon.set_assesment_results(assignment_id, converted_assnum, converted_result);
+
+                    if (success)
+                    {
+                        MessageBox.Show("results added", "success", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                    }
+                }
+                //assignment table entry not found
+                else
+                {
+                    MessageBox.Show("that user is not enroled in the unit", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                }
+
+            }
+            //user doesn't exist
+            else
+            {
+                MessageBox.Show("Invalid username", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            }
+
+
+        }
+
+        private void Submit_attendance_Click(object sender, EventArgs e)
+        {
+
+            int class_number;
+
+            //check if attended is ticked or not
+            int attended = 1;
+            //if so set attended to 2 to signify attendance
+            if (checkBoxAttended.Checked)
+            {
+                attended = 2;
+            }
+
+            //convert class number from string
+            bool result = Int32.TryParse(Class_number.Text, out class_number);
+            if (result)
+            {
+                Console.WriteLine("Converted class number.", Assignment_number.Text, class_number);
+            }
+            else
+            {
+                Console.WriteLine("Attempted conversion of class number failed.");
+
+                MessageBox.Show("Invalid class number", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                return;
+            }
+
+
+
+            //make dbcon object
+            var dbcon = new DBConnect();
+
+            //get the user number of the student 
+            int usernumber = dbcon.get_user_id(Students_username.Text);
+            //make sure usernumber returned non 0
+            if (usernumber != 0)
+            {
+                int class_id = dbcon.get_class_id(usernumber, Unit_code.Text);
+
+                //check id isn't 0
+                if (class_id != 0)
+                {
+                    //commit class
+                    bool success = dbcon.set_class_attendance(class_id, class_number, attended);
+
+                    if (success)
+                    {
+                        MessageBox.Show("results added", "success", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                    }
+                }
+                //class table entry not found
+                else
+                {
+                    MessageBox.Show("that user is not enroled in the unit", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                }
+            }
+            //user doesn't exist
+            else
+            {
+                MessageBox.Show("Invalid username", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            }
+        }
     }
 }
+    

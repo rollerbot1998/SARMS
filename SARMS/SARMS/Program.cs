@@ -1109,90 +1109,280 @@ class DBConnect
                 return assesments;
             }
         }
-    
 
-        //
+    //set the results of an assignment
+    public bool set_assesment_results(int class_id, int assignment_number, int assignment_score)
+    {
 
-        /*   //Backup
-            public void Backup()
-            {
-                try
-                {
-                    DateTime Time = DateTime.Now;
-                    int year = Time.Year;
-                    int month = Time.Month;
-                    int day = Time.Day;
-                    int hour = Time.Hour;
-                    int minute = Time.Minute;
-                    int second = Time.Second;
-                    int millisecond = Time.Millisecond;
+        //check assignment results are in the allowed ranges
+        if (assignment_number > 6 || assignment_number < 1)
+        {
+            MessageBox.Show("assignment number invalid", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
 
-                    //Save file to C:\ with the current date as a filename
-                    string path;
-                    path = "C:\\MySqlBackup" + year + "-" + month + "-" + day +
-                "-" + hour + "-" + minute + "-" + second + "-" + millisecond + ".sql";
-                    StreamWriter file = new StreamWriter(path);
+            return false;
+        }
+        //check assignment results are in allowed ranges
+        if (assignment_score > 100 || assignment_score < 0)
+        {
+            MessageBox.Show("assignment results invalid", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+
+            return false;
+        }
 
 
-                    ProcessStartInfo psi = new ProcessStartInfo();
-                    psi.FileName = "mysqldump";
-                    psi.RedirectStandardInput = false;
-                    psi.RedirectStandardOutput = true;
-                    psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
-                        uid, password, server, database);
-                    psi.UseShellExecute = false;
+        //open connection
+        if (this.OpenConnection() == true)
+        {
 
-                    Process process = Process.Start(psi);
-
-                    string output;
-                    output = process.StandardOutput.ReadToEnd();
-                    file.WriteLine(output);
-                    process.WaitForExit();
-                    file.Close();
-                    process.Close();
-                }
-                catch (IOException ex)
-                {
-                    MessageBox.Show("Error , unable to backup!");
-                }
-            }
-
-            //Restore
-            public void Restore()
-            {
-                try
-                {
-                    //Read file from C:\
-                    string path;
-                    path = "C:\\MySqlBackup.sql";
-                    StreamReader file = new StreamReader(path);
-                    string input = file.ReadToEnd();
-                    file.Close();
-
-                    ProcessStartInfo psi = new ProcessStartInfo();
-                    psi.FileName = "mysql";
-                    psi.RedirectStandardInput = true;
-                    psi.RedirectStandardOutput = false;
-                    psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
-                        uid, password, server, database);
-                    psi.UseShellExecute = false;
+            //build sql statement 
+            string query = "Update SARMS_assignments SET assignment" + assignment_number + " = " + assignment_score + " Where instance_id = " + class_id + ";";
 
 
-                    Process process = Process.Start(psi);
-                    process.StandardInput.WriteLine(input);
-                    process.StandardInput.Close();
-                    process.WaitForExit();
-                    process.Close();
-                }
-                catch (IOException ex)
-                {
-                    MessageBox.Show("Error , unable to Restore!");
-                }
-            }
+            //create command and assign the query and connection from the constructor
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+
+            //Execute command
+            cmd.ExecuteNonQuery();
+
+            //close connection
+            this.CloseConnection();
+
+            return true;
+        }
 
 
-            }*/
+        MessageBox.Show("connection failed", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+
+        return false;
+
+
     }
+
+    public int get_assignment_id (int student_id , string unit_code)
+    {
+        int temp = 0;
+
+        //open connection
+        if (this.OpenConnection() == true)
+        {
+
+            string query = "SELECT assesment_id FROM SARMS_linking WHERE student_id= " + student_id + " AND unit_code = '" + unit_code + "';";
+
+            //create command
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+
+            //Create a data reader and Execute the command
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                temp = dataReader.GetInt32(dataReader.GetOrdinal("assesment_id"));
+            }
+
+
+            //close Data Reader
+            dataReader.Close();
+
+            this.CloseConnection();
+
+            return temp;
+        }
+
+        else
+        {
+            return temp;
+        }
+
+    }
+
+    public int get_user_id (string username)
+    {
+        int temp = 0;
+
+        //open connection
+        if (this.OpenConnection() == true)
+        {
+
+            string query = "SELECT usernumber FROM SARMS_users WHERE username= '" + username + "';";
+
+            //create command
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+
+            //Create a data reader and Execute the command
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                temp = dataReader.GetInt32(dataReader.GetOrdinal("usernumber"));
+            }
+
+
+            //close Data Reader
+            dataReader.Close();
+
+            this.CloseConnection();
+
+            return temp;
+        }
+
+        else
+        {
+            return temp;
+        }
+
+    }
+
+    //set the results of an assignment
+    public bool set_class_attendance(int class_id, int class_number, int attended)
+    {
+
+        //open connection
+        if (this.OpenConnection() == true)
+        {
+
+            //build sql statement 
+            string query = "Update SARMS_classes SET class" + class_number + " = " + attended + " Where instance_id = " + class_id + ";";
+
+
+            //create command and assign the query and connection from the constructor
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+
+            //Execute command
+            cmd.ExecuteNonQuery();
+
+            //close connection
+            this.CloseConnection();
+
+            return true;
+        }
+
+
+        MessageBox.Show("connection failed", "Unsuccessful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+
+        return false;
+
+
+    }
+
+    public int get_class_id(int student_id, string unit_code)
+    {
+        int temp = 0;
+
+        //open connection
+        if (this.OpenConnection() == true)
+        {
+
+            string query = "SELECT classes_id FROM SARMS_linking WHERE student_id= " + student_id + " AND unit_code = '" + unit_code + "';";
+
+            //create command
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+
+            //Create a data reader and Execute the command
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                temp = dataReader.GetInt32(dataReader.GetOrdinal("classes_id"));
+            }
+
+
+            //close Data Reader
+            dataReader.Close();
+
+            this.CloseConnection();
+
+            return temp;
+        }
+
+        else
+        {
+            return temp;
+        }
+
+    }
+
+    //
+
+    /*   //Backup
+        public void Backup()
+        {
+            try
+            {
+                DateTime Time = DateTime.Now;
+                int year = Time.Year;
+                int month = Time.Month;
+                int day = Time.Day;
+                int hour = Time.Hour;
+                int minute = Time.Minute;
+                int second = Time.Second;
+                int millisecond = Time.Millisecond;
+
+                //Save file to C:\ with the current date as a filename
+                string path;
+                path = "C:\\MySqlBackup" + year + "-" + month + "-" + day +
+            "-" + hour + "-" + minute + "-" + second + "-" + millisecond + ".sql";
+                StreamWriter file = new StreamWriter(path);
+
+
+                ProcessStartInfo psi = new ProcessStartInfo();
+                psi.FileName = "mysqldump";
+                psi.RedirectStandardInput = false;
+                psi.RedirectStandardOutput = true;
+                psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
+                    uid, password, server, database);
+                psi.UseShellExecute = false;
+
+                Process process = Process.Start(psi);
+
+                string output;
+                output = process.StandardOutput.ReadToEnd();
+                file.WriteLine(output);
+                process.WaitForExit();
+                file.Close();
+                process.Close();
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Error , unable to backup!");
+            }
+        }
+
+        //Restore
+        public void Restore()
+        {
+            try
+            {
+                //Read file from C:\
+                string path;
+                path = "C:\\MySqlBackup.sql";
+                StreamReader file = new StreamReader(path);
+                string input = file.ReadToEnd();
+                file.Close();
+
+                ProcessStartInfo psi = new ProcessStartInfo();
+                psi.FileName = "mysql";
+                psi.RedirectStandardInput = true;
+                psi.RedirectStandardOutput = false;
+                psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
+                    uid, password, server, database);
+                psi.UseShellExecute = false;
+
+
+                Process process = Process.Start(psi);
+                process.StandardInput.WriteLine(input);
+                process.StandardInput.Close();
+                process.WaitForExit();
+                process.Close();
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Error , unable to Restore!");
+            }
+        }
+
+
+        }*/
+}
 
 
 
