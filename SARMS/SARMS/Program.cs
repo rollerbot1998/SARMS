@@ -57,7 +57,7 @@ namespace SARMS
 class Version
 {
     //call Version.GetVersionNumber to return version number set below
-    public static string GetVersionNumber() { return "v0.7"; }
+    public static string GetVersionNumber() { return "v0.9"; }
 }
 
 class DBConnect

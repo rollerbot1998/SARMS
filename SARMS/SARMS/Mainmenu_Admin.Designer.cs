@@ -60,6 +60,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.progressBarTeacher = new System.Windows.Forms.ProgressBar();
             this.teacherPerformance = new System.Windows.Forms.Label();
             this.teacherAttendance = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -129,7 +130,6 @@
             this.addtype = new System.Windows.Forms.Label();
             this.addUsername = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.progressBarTeacher = new System.Windows.Forms.ProgressBar();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -496,6 +496,13 @@
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "report of student progress";
             // 
+            // progressBarTeacher
+            // 
+            this.progressBarTeacher.Location = new System.Drawing.Point(6, 300);
+            this.progressBarTeacher.Name = "progressBarTeacher";
+            this.progressBarTeacher.Size = new System.Drawing.Size(305, 20);
+            this.progressBarTeacher.TabIndex = 5;
+            // 
             // teacherPerformance
             // 
             this.teacherPerformance.AutoSize = true;
@@ -534,9 +541,9 @@
             // 
             // teacherGenerateReport
             // 
-            this.teacherGenerateReport.Location = new System.Drawing.Point(81, 31);
+            this.teacherGenerateReport.Location = new System.Drawing.Point(6, 256);
             this.teacherGenerateReport.Name = "teacherGenerateReport";
-            this.teacherGenerateReport.Size = new System.Drawing.Size(127, 25);
+            this.teacherGenerateReport.Size = new System.Drawing.Size(305, 38);
             this.teacherGenerateReport.TabIndex = 0;
             this.teacherGenerateReport.Text = "Generate report";
             this.teacherGenerateReport.UseVisualStyleBackColor = true;
@@ -1161,13 +1168,6 @@
             // backgroundWorker1
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            // 
-            // progressBarTeacher
-            // 
-            this.progressBarTeacher.Location = new System.Drawing.Point(46, 211);
-            this.progressBarTeacher.Name = "progressBarTeacher";
-            this.progressBarTeacher.Size = new System.Drawing.Size(203, 45);
-            this.progressBarTeacher.TabIndex = 5;
             // 
             // MainMenu_Admin
             // 

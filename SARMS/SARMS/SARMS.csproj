@@ -61,11 +61,23 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mainmenu.cs">
+    <Compile Include="Mainmenu_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mainmenu.Designer.cs">
-      <DependentUpon>Mainmenu.cs</DependentUpon>
+    <Compile Include="Mainmenu_Admin.Designer.cs">
+      <DependentUpon>Mainmenu_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mainmenu_Student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mainmenu_Student.Designer.cs">
+      <DependentUpon>Mainmenu_Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mainmenu_Teacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mainmenu_Teacher.Designer.cs">
+      <DependentUpon>Mainmenu_Teacher.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,8 +87,14 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mainmenu.resx">
-      <DependentUpon>Mainmenu.cs</DependentUpon>
+    <EmbeddedResource Include="Mainmenu_Admin.resx">
+      <DependentUpon>Mainmenu_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mainmenu_Student.resx">
+      <DependentUpon>Mainmenu_Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mainmenu_Teacher.resx">
+      <DependentUpon>Mainmenu_Teacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

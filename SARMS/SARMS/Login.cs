@@ -27,25 +27,25 @@ namespace SARMS
             var dbcon = new DBConnect();            
             int id = dbcon.login(Username_box.Text, Password_box.Text);
             
-            if (id != 0)
+            
+            if (id > 0 && id <= 499)
             {
-                //generate login box
-                
-                //make main menu form
-                MainMenu_Admin MainMenuForm = new MainMenu_Admin(id);
-                
-
-                Console.WriteLine(id);
-                //open main menu form                
-                MainMenuForm.Show();
-
-                //close this form                              
-                this.Hide();                
+                MainMenu_Admin MainMenuFormAdmin = new MainMenu_Admin(id);
+                MainMenuFormAdmin.Show();
+                this.Hide();
             }
-            /*else if (id >= 501)
+            else if (id > 500 && id <= 1999)
             {
-                //TODO launch separate form
-            }*/
+                MainMenu_Teacher MainMenuFormTeacher = new MainMenu_Teacher(id);
+                MainMenuFormTeacher.Show();
+                this.Hide();
+            }
+            else if (id >= 2000)
+            {
+                MainMenu_Student MainMenuFormStudent = new MainMenu_Student(id);
+                MainMenuFormStudent.Show();
+                this.Hide();
+            }
             //if login is unsuccesful tell the user
             else
             {

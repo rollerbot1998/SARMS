@@ -42,3 +42,5 @@ C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.Form1.re
 C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.MainMenu_Admin.resources
 C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.Properties.Resources.resources
 C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.csproj.GenerateResource.Cache
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.MainMenu_Student.resources
+C:\Users\Jared\Documents\GitHub\SARMS\SARMS\SARMS\SARMS\obj\Debug\SARMS.MainMenu_Teacher.resources
