@@ -26,25 +26,30 @@ namespace SARMS
             //get user id    NOTE: id of 0 will be returned if connection fails!!!!!!            
             var dbcon = new DBConnect();            
             int id = dbcon.login(Username_box.Text, Password_box.Text);
+            int suspended = dbcon.Select_user_suspended(id);
             
             
-            if (id > 0 && id <= 499)
+            if (id > 0 && id <= 499 && suspended != 1)
             {
                 MainMenu_Admin MainMenuFormAdmin = new MainMenu_Admin(id);
                 MainMenuFormAdmin.Show();
                 this.Hide();
             }
-            else if (id > 500 && id <= 1999)
+            else if (id > 500 && id <= 1999 && suspended != 1)
             {
                 MainMenu_Teacher MainMenuFormTeacher = new MainMenu_Teacher(id);
                 MainMenuFormTeacher.Show();
                 this.Hide();
             }
-            else if (id >= 2000)
+            else if (id >= 2000 && suspended != 1)
             {
                 MainMenu_Student MainMenuFormStudent = new MainMenu_Student(id);
                 MainMenuFormStudent.Show();
                 this.Hide();
+            }
+            else if (suspended == 1)
+            {
+             MessageBox.Show("User account suspended.", "Unsuccesful", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
             }
             //if login is unsuccesful tell the user
             else
